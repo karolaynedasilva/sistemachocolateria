@@ -12,6 +12,7 @@
                        <th>Nome</th>
                        <th>CNPJ</th>
                        <th>Endereço</th>
+                       <th>UF</th>
                        <th>Cidade</th>
                        <th></th>
                     </tr>
@@ -22,7 +23,8 @@
                        <td th:text="${umFranquiado.nome}"></td>
                        <td th:text="${umFranquiado.CNPJ}"></td>
                        <td th:text="${umFranquiado.endereco}"></td>
-                       <td>cidade</td>
+                       <td></td>
+                       <td></td>
                        <td> 
                            <a th:href="@{'franquiados/alterar/' + ${umFranquiado.id}}" class="btn btn-warning">Alterar</a>
                            <button class="btn btn-danger js-delete" th:data-id="${umFranquiado.id}">Excluir</button>
@@ -50,5 +52,6 @@
           </div>
         <footer th:include="layout :: footer"></footer>
         <script th:src="@{/script.js}"></script>
+        <script type="text/javascript" th:src="@{/app.js}"></script>
     </body>
 </html>
