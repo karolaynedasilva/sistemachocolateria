@@ -1,0 +1,32 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+    <body>
+    <nav th:replace="layout :: menu"></nav>
+        <main class="container">
+            <form th:action="@{/franquiados/(form)}" method="POST" th:object="${franquiado}">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="txtnome">Nome:</label>
+                    <input type="text" th:field="*{nome}" class="form-control" id="txtnome">    
+                </div> 
+                <div class="form-group">
+                    <label for="txtCNPJ">CNPJ:</label>
+                    <input type="text" th:field="*{CNPJ}" class="form-control" id="txtCNPJ">    
+                </div>   
+                <div class="form-group">
+                    <label for="txtendereco">Endereço:</label>
+                    <input type="text" th:field="*{endereco}" class="form-control" id="txtendereco">    
+                </div> 
+                <!-- <div class="form-group"> 
+                    <label>Cidade:</label>
+                    <select class="form-select" th:field="*{}">
+                        <option></option>
+                    </select>
+                </div>-->    
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </main>
+        <footer th:include="layout :: footer"></footer>
+    </body>
+</html>
