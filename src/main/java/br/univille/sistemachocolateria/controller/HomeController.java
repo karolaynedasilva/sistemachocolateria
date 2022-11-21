@@ -1,16 +1,17 @@
 package br.univille.sistemachocolateria.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
-@RequestMapping("/home")
+@ControllerAdvice 
+@RequestMapping
 public class HomeController {
+    
     private int contador;
 
-    @GetMapping
+    @GetMapping("/home")
     public ModelAndView index(){
         contador++;
         return new ModelAndView("home/index","valor",contador);
