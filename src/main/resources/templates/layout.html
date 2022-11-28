@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <nav th:fragment="menu" class="navbar navbar-expand-lg bg-light">
+    <nav th:fragment="menu" class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Sistema Chocolateria</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,44 @@
           </div>
         </div>
       </nav>
-            
+
+      <main class="container" th:fragment="principal"
+      style="min-height: 485px;">
+      <div class="com-md-12 mt-3"
+        style="border: 1px dotted #ccc; padding: 10px">
+        <section>
+          <h2 style="border-bottom: 2px solid #000; margin-bottom: 20px">Resumos</h2>
+  
+          <div class="card-deck">
+            <div class="card text-white bg-primary mb-3"
+              style="max-width: 33rem;">
+              <div class="card-header">Clientes</div>
+              <div class="card-body">
+                <h6 class="card-title text-center">Quantidade Atual</h6>
+                <p class="card-text text-center"><span style="font-size: 40px;" th:text="${home.qtd_cliente}"></span></p>
+              </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3"
+              style="max-width: 33rem;">
+              <div class="card-header">Fornecedores</div>
+              <div class="card-body">
+                <h6 class="card-title text-center">Quantidade Atual</h6>
+                <p class="card-text text-center"><span style="font-size: 40px;" th:text="${home.qtd_fornecedor}"></span></p>
+              </div>
+            </div><div class="card text-white bg-success mb-3"
+              style="max-width: 33rem;">
+              <div class="card-header">Produtos</div>
+              <div class="card-body">
+                <h6 class="card-title text-center">Quantidade Atual</h6>
+                <p class="card-text text-center"><span style="font-size: 40px;" th:text="${home.qtd_produto}"></span></p>
+              </div>
+            </div>
+          </div>
+  
+        </section>
+      </div>
+    </main>
+
       <footer th:fragment="footer">
           <script th:src="@{/webjars/jquery/3.6.1/dist/jquery.min.js}"></script>
           <script th:src="@{/webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
