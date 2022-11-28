@@ -2,13 +2,20 @@ package br.univille.sistemachocolateria.entity;
 
 import java.io.Serializable;
 
-public class Home implements Serializable{
+public class ItemEstoque implements Serializable{
 
     private static final long serialVersionUID = 1L;
 	
 	private long qtd_produto;
 	private long qtd_fornecedor;
+	private long qtd_funcionario;
 	
+	public long getQtd_funcionario() {
+		return qtd_funcionario;
+	}
+	public void setQtd_funcionario(long qtd_funcionario) {
+		this.qtd_funcionario = qtd_funcionario;
+	}
 	public long getQtd_produto() {
 		return qtd_produto;
 	}
@@ -31,11 +38,14 @@ public class Home implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Home other = (Home) obj;
+		ItemEstoque other = (ItemEstoque) obj;
+		if (qtd_fornecedor != other.qtd_fornecedor)
+		return false;
 		if (qtd_fornecedor != other.qtd_fornecedor)
 			return false;
 		if (qtd_produto != other.qtd_produto)
 			return false;
+		
 		return true;
 	}
 	

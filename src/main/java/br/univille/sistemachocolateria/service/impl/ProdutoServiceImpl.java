@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import br.univille.sistemachocolateria.entity.Produto;
 import br.univille.sistemachocolateria.repository.ProdutoRepository;
 import br.univille.sistemachocolateria.service.ProdutoService;
-import br.univille.sistemachocolateria.util.PaginacaoUtil;
 
 @Service
 public class ProdutoServiceImpl
@@ -41,10 +40,4 @@ public class ProdutoServiceImpl
         repositorio.deleteById(id);
 
     }
-
-    // @Override
-    // public PaginacaoUtil<Produto> buscarPorPagina(int pagina) {
-    //     return repositorio.busca;
-    // }
-
 }

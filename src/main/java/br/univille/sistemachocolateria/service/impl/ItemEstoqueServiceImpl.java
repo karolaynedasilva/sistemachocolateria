@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.univille.sistemachocolateria.entity.Franquiado;
-import br.univille.sistemachocolateria.entity.Home;
+import br.univille.sistemachocolateria.entity.ItemEstoque;
 import br.univille.sistemachocolateria.repository.FranquiadoRepository;
 import br.univille.sistemachocolateria.repository.ProdutoRepository;
-import br.univille.sistemachocolateria.service.HomeService;
+import br.univille.sistemachocolateria.service.ItemEstoqueService;
 
 @Service
-public class HomeServiceImpl implements HomeService{
+public class ItemEstoqueServiceImpl implements ItemEstoqueService{
 
     @Autowired
     private ProdutoRepository produtoRepository;
@@ -18,8 +18,8 @@ public class HomeServiceImpl implements HomeService{
     @Autowired FranquiadoRepository franquiadoRepository;
 
     @Override
-    public Home getResumo() {
-        Home home = new Home();
+    public ItemEstoque getResumo() {
+        ItemEstoque home = new ItemEstoque();
         home.setQtd_produto(produtoRepository.count());
 		home.setQtd_fornecedor(franquiadoRepository.count());
         return home;
