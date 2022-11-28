@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.univille.sistemachocolateria.entity.Home;
 import br.univille.sistemachocolateria.service.HomeService;
 
 @Controller
@@ -36,12 +37,12 @@ public class HomeController {
     //     model.addAttribute(home);
     //     return new ModelAndView("home/index","home",home);
     // }
-    private int contador;
 
     @GetMapping("/home")
-    public ModelAndView index(){
-        contador++;
-        return new ModelAndView("home/index","valor",contador);
+    public ModelAndView index(ModelMap model){
+        Home home = homeService.getResumo();
+        model.addAttribute(home);
+        return new ModelAndView("home/index","home", home);
     }
 
 }
