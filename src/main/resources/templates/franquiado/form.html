@@ -4,32 +4,43 @@
     <body>
     <nav th:replace="layout :: menu"></nav>
         <main class="container">
-            <form th:action="@{/franquiados/(form)}" method="POST" th:object="${franquiado}">
+            <form th:action="@{/franquiados/(form)}" method="POST" th:object="${franquiado}" class="row g-3">
+                <h2>Cadastre um novo Franquiado:</h2>
                 <input type="hidden" th:field="*{id}">
-                <div class="form-group">
-                    <label for="txtnome">Nome:</label>
+                <div class="col-md-6">
+                    <label for="txtnome" class="form-label">Nome:</label>
                     <input type="text" th:field="*{nome}" class="form-control" id="txtnome">    
+                </div> 
+                <div class="col-md-6">
+                    <label for="txttelefone" class="form-label">Telefone:</label>
+                    <input type="number" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">    
                 </div> 
                 <div class="form-group">
                     <label for="txtCNPJ">CNPJ:</label>
-                    <input type="text" th:field="*{CNPJ}" class="form-control" id="txtCNPJ">    
+                    <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{CNPJ}" class="form-control" id="txtCNPJ">    
                 </div>   
-                <div class="form-group">
-                    <label for="txtendereco">Endereço:</label>
-                    <input type="text" th:field="*{endereco}" class="form-control" id="txtendereco">    
-                </div>  
-                <section>
-                    <form action="">
-                        <label for="uf">UF:</label>
-                        <select id="uf">
-                            <option value=""></option>
-                        </select>
-                        <label for="cidade">Cidade:</label>
-                        <select id="cidade">
-                            <option value=""></option>
-                        </select>
-                    </form>
-                </section> 
+                <div>
+                    <div class="form-group">
+                        <label for="txtLogradouro">Logradouro:</label>
+                        <input type="text" th:field="*{endereco.logradouro}"class="form-control" id="txtLogradouro">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtBairro" class="form-label">Bairro:</label>
+                        <input type="text" th:field="*{endereco.bairro}"class="form-control" id="txtBairro">
+                    </div>
+                </div>
+                
+                <div class="col-md-2">
+                    <label for="categoria" class="form-label">UF</label>
+                    <select class="form-control" id="uf" th:field="*{endereco.uf}">
+                      <option value="">Selecione...</option>
+                      <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.descricao}">Novo</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="txtCidade" class="form-label">Cidade:</label>
+                    <input type="text" th:field="*{endereco.cidade}"class="form-control" id="txtCidade">
+                </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </main>
