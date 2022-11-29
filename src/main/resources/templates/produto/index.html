@@ -5,16 +5,17 @@
 
 <body>
     <nav th:replace="layout :: menu"></nav>
-    <main class="container">
+    <main class="container"> 
+        <h2>Controle de Produtos:</h2>
         <a href="/produtos/novo" class="btn btn-primary">Novo</a>
-        <table class="table" id="tabprodutos">
+        <table class="table table-bordered"id="tabprodutos" >
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Marca</th>
                     <th>Tipo</th>
                     <th>Valor</th>
-                    <th></th>
+                    <th>Editar</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                     <td th:text="${umProduto.marca}"></td>
                     <td th:text="${umProduto.tipo}"></td>
                     <td th:text="${umProduto.valor}"></td>
+                    
                     <td>
                         <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-warning">Alterar</a>
                         <button class="btn btn-danger js-delete" th:data-id="${umProduto.id}">Excluir</button>

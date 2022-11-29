@@ -6,7 +6,7 @@
 <body>
     <nav th:replace="layout :: menu"></nav>
     <main class="container">
-        <form th:action="@{/produtos/(form)}" method="POST" th:object="${produto}">
+        <form th:action="@{/produtos/(form)}" method="POST" th:object="${produto}" class="row g-3">
 
             <input type="hidden" th:field="*{id}" class="form-control">
 
@@ -22,7 +22,6 @@
                 <label for="txtvalor">Valor:</label>
                 <input type="text" th:field="*{valor}" class="form-control" id="txtvalor">
             </div>
-
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </main>
