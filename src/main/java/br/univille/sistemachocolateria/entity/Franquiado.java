@@ -1,9 +1,12 @@
 package br.univille.sistemachocolateria.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Franquiado {
@@ -12,7 +15,13 @@ public class Franquiado {
     private long id;
     private String nome;
     private String CNPJ; 
-    private String endereco;
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
+    private String email;
+    private String telefone;
+    
+    //TODO private List<Produtos> produtos;
 
     public long getId() {
         return id;
@@ -32,11 +41,23 @@ public class Franquiado {
     public void setCNPJ(String cNPJ) {
         CNPJ = cNPJ;
     }
-    public String getEndereco() {
+    public Endereco getEndereco() {
         return endereco;
     }
-    public void setEndereco(String endereco) {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getTelefone() {
+        return telefone;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
     
 }

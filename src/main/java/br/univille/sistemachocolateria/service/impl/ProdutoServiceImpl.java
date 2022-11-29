@@ -3,6 +3,8 @@ package br.univille.sistemachocolateria.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 import br.univille.sistemachocolateria.entity.Produto;
 import br.univille.sistemachocolateria.repository.ProdutoRepository;
 import br.univille.sistemachocolateria.service.ProdutoService;
@@ -38,5 +40,4 @@ public class ProdutoServiceImpl
         repositorio.deleteById(id);
 
     }
-
 }
