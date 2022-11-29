@@ -21,6 +21,7 @@ public class Franquiado {
     private String email;
     private String telefone;
     
+    
     //TODO private List<Produtos> produtos;
 
     public long getId() {
