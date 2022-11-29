@@ -1,4 +1,4 @@
-package br.univille.sistemachocolateria.service.imp;
+package br.univille.sistemachocolateria.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

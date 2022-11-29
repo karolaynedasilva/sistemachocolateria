@@ -1,7 +1,7 @@
 const urlUF = "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
 const uf = document.getElementById("uf")
 const cidade = document.getElementById("cidade")
-
+const mysql = require('../static/mysql').pool;
 
 
 uf.addEventListener('change', async () => {
@@ -15,8 +15,6 @@ uf.addEventListener('change', async () => {
     })
     cidade.innerHTML= options
 })
-
-
 
 window.addEventListener('load', async () =>{
     //await pq minha função é assincrona - espera resposta do servidor
