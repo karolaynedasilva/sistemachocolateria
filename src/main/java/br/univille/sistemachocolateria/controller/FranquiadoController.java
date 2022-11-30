@@ -2,8 +2,11 @@ package br.univille.sistemachocolateria.controller;
 
 import java.util.HashMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +38,14 @@ public class FranquiadoController {
         return new ModelAndView("franquiado/form", dados);
     }
     @PostMapping(params = "form")
-    public ModelAndView save(Franquiado franquiado){
+    public ModelAndView save(@Valid Franquiado franquiado, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            var listaFranquiados = service.getAll();
+            HashMap<String,Object> dados = new HashMap<>();
+            dados.put("franquiado", franquiado);
+            dados.put("listaFranquiados", listaFranquiados);
+            return new ModelAndView("franquiado/form", dados);
+        }
         service.save(franquiado);
         return new ModelAndView("redirect:/franquiados");
     }
