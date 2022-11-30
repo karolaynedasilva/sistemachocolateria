@@ -7,20 +7,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Franquiado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank(message = "Campo obrigatório")
     private String nome;
     private String CNPJ; 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    @NotBlank(message = "Campo obrigatório")
     private String email;
     private String telefone;
-    
     
     //TODO private List<Produtos> produtos;
 
@@ -60,5 +62,7 @@ public class Franquiado {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+   
+    
     
 }
