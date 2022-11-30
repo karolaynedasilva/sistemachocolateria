@@ -3,15 +3,14 @@ package br.univille.sistemachocolateria.controller;
 import java.util.HashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import br.univille.sistemachocolateria.entity.ItemVenda;
 import br.univille.sistemachocolateria.entity.Venda;
+import br.univille.sistemachocolateria.service.FranquiadoService;
 import br.univille.sistemachocolateria.service.ProdutoService;
 import br.univille.sistemachocolateria.service.VendaService;
 
@@ -25,6 +24,9 @@ public class VendaController {
     @Autowired
     private ProdutoService produtoService;
 
+    @Autowired
+    private FranquiadoService franquiadoService;
+
     @GetMapping
     public ModelAndView index() {
         var listaVendas = service.getAll();
@@ -34,9 +36,11 @@ public class VendaController {
     @GetMapping("/novo")
     public ModelAndView novo() {
         var Vendanova = new Venda();
+        var listaFranquiados = franquiadoService.getAll();
         var listaProdutos = produtoService.getAll();
         HashMap<String, Object> dados = new HashMap<>();
         dados.put("venda", Vendanova);
+        dados.put("listaFranquiados", listaFranquiados);
         dados.put("listaProdutos", listaProdutos);
         dados.put("novoItem", new ItemVenda());
         return new ModelAndView("venda/form", dados);
@@ -54,10 +58,11 @@ public class VendaController {
     public ModelAndView incluirItem(Venda venda,
             ItemVenda novoItem) {
         venda.getListaItens().add(novoItem);
-
+        var listaFranquiados = franquiadoService.getAll();
         var listaProdutos = produtoService.getAll();
         HashMap<String, Object> dados = new HashMap<>();
         dados.put("venda", venda);
+        dados.put("listaFranquiados", listaFranquiados);
         dados.put("listaProdutos", listaProdutos);
         dados.put("novoItem", new ItemVenda());
         return new ModelAndView("venda/form", dados);
@@ -67,10 +72,11 @@ public class VendaController {
     public ModelAndView removerItem(@RequestParam("removeitem") int index,
             Venda venda) {
         venda.getListaItens().remove(index);
-
+        var listaFranquiados = franquiadoService.getAll();
         var listaProdutos = produtoService.getAll();
         HashMap<String, Object> dados = new HashMap<>();
         dados.put("venda", venda);
+        dados.put("listaFranquiados", listaFranquiados);
         dados.put("listaProdutos", listaProdutos);
         dados.put("novoItem", new ItemVenda());
         return new ModelAndView("venda/form", dados);

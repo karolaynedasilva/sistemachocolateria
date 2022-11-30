@@ -15,13 +15,13 @@ import br.univille.sistemachocolateria.service.ItemEstoqueService;
 public class ItemEstoqueController {
     
     @Autowired
-	private ItemEstoqueService homeService;
+	private ItemEstoqueService itemService;
 
-    @GetMapping("/home")
+    @GetMapping("/estoque")
     public ModelAndView index(ModelMap model){
-        ItemEstoque home = homeService.getResumo();
-        model.addAttribute(home);
-        return new ModelAndView("home/index","home", home);
+        ItemEstoque estoque = itemService.getResumo();
+        model.addAttribute(estoque);
+        return new ModelAndView("estoque/index","estoque", estoque);
     }
 
 }

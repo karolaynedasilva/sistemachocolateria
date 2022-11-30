@@ -1,7 +1,5 @@
 package br.univille.sistemachocolateria.entity;
 
-import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +15,7 @@ public class ItemVenda {
     private long id;
     private int quantidade;
     private float valorVenda;
-    @ManyToOne(cascade = { CascadeType.REFRESH })
+    @ManyToOne(cascade = {CascadeType.REFRESH})
     private Produto produto;
 
     public long getId() {

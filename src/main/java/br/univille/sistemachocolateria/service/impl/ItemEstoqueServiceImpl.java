@@ -3,7 +3,7 @@ package br.univille.sistemachocolateria.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.univille.sistemachocolateria.entity.Franquiado;
+
 import br.univille.sistemachocolateria.entity.ItemEstoque;
 import br.univille.sistemachocolateria.repository.FranquiadoRepository;
 import br.univille.sistemachocolateria.repository.ProdutoRepository;
@@ -19,10 +19,10 @@ public class ItemEstoqueServiceImpl implements ItemEstoqueService{
 
     @Override
     public ItemEstoque getResumo() {
-        ItemEstoque home = new ItemEstoque();
-        home.setQtd_produto(produtoRepository.count());
-		home.setQtd_fornecedor(franquiadoRepository.count());
-        return home;
+        ItemEstoque estoque = new ItemEstoque();
+        estoque.setQtd_produto(produtoRepository.count());
+		estoque.setQtd_franquiado(franquiadoRepository.count());
+        return estoque;
     }
     
     
