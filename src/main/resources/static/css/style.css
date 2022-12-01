@@ -4,16 +4,22 @@ body{
 div.cards{
     display: flex;
     flex-direction: row;
-    
+    text-align: center;
+
+ 
 }
 section{
     border: solid 1px black;
     height: 400px;
     width: 400px;
     justify-content: space-between;
+    color: cadetblue;
+    margin: auto;
+
+
 }
 .navbar-custom .navbar {
-   background-color: aqua;
+
 }
 main{
 
