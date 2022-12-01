@@ -30,10 +30,13 @@
                 <a class="nav-link" href="/produtos">Produtos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">Estoque</a>
+                <a class="nav-link" href="/estoque">Estoque</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/vendas">Vendas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/funcionarios">Funcionários</a>
               </li>
             </ul>
           </div>
@@ -53,7 +56,7 @@
               <div class="card-header">Funcionários</div>
               <div class="card-body">
                 <h6 class="card-title text-center">Quantidade Atual</h6>
-                <p class="card-text text-center" th:text=${home.qtd_produto}><span style="font-size: 40px;"></span></p>
+                <p class="card-text text-center" th:text=${estoque.qtd_produto}><span style="font-size: 40px;"></span></p>
               </div>
             </div>
             <div class="card border-danger mb-3"
@@ -61,14 +64,14 @@
                   <div class="card-header">Franquiados</div>
                   <div class="card-body">
                     <h6 class="card-title text-center">Quantidade Atual</h6>
-                    <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${home.qtd_franquiado}></span></p>
+                    <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_franquiado}></span></p>
                   </div>
                 </div><div class="card border-success mb-3"
                   style="max-width: 33rem;">
                   <div class="card-header">Produtos</div>
                   <div class="card-body">
                     <h6 class="card-title text-center">Quantidade Atual</h6>
-                    <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${home.qtd_produto}></span></p>
+                    <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_produto}></span></p>
                   </div>
                 </div>
               </div>

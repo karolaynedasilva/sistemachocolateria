@@ -39,7 +39,7 @@ public class ItemEstoque implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ItemEstoque other = (ItemEstoque) obj;
-		if (qtd_franquiado != other.qtd_franquiado)
+		if (qtd_funcionario != other.qtd_funcionario)
 		return false;
 		if (qtd_franquiado != other.qtd_franquiado)
 			return false;
