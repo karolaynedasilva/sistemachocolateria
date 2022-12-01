@@ -9,13 +9,19 @@
                 <input type="hidden" th:field="*{id}">
                 <div class="col-md-6">
                     <label for="txtnome" class="form-label">Nome:</label>
-                    <input type="text" th:field="*{nome}" class="form-control" id="txtnome">    
+                    <input type="text" th:field="*{nome}" class="form-control" id="txtnome"> 
+                    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger"></p>   
+                </div> 
+                <div class="col-md-6">
+                    <label for="txtemail" class="form-label">E-mail:</label>
+                    <input type="text" th:field="*{email}" class="form-control" id="txtemail"> 
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></p>   
                 </div> 
                 <div class="col-md-6">
                     <label for="txttelefone" class="form-label">Telefone:</label>
-                    <input type="number" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">    
+                    <input type="number" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">   
                 </div> 
-                <div class="form-group">
+                <div class="col-md-6">
                     <label for="txtCNPJ">CNPJ:</label>
                     <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{CNPJ}" class="form-control" id="txtCNPJ">    
                 </div>   
@@ -23,6 +29,7 @@
                     <div class="form-group">
                         <label for="txtLogradouro">Logradouro:</label>
                         <input type="text" th:field="*{endereco.logradouro}"class="form-control" id="txtLogradouro">
+                        <p th:if="${#fields.hasErrors('endereco.logradouro')}" th:errors="*{endereco.logradouro}" class="alert alert-danger"></p>
                     </div>
                     <div class="form-group">
                         <label for="txtBairro" class="form-label">Bairro:</label>
@@ -46,5 +53,6 @@
         </main>
         <footer th:include="layout :: footer"></footer>
         <script type="text/javascript" th:src="@{/app.js}"></script>
+        <script type="text/javascript" th:src="@{/teste.js}"></script>
     </body>
 </html>
