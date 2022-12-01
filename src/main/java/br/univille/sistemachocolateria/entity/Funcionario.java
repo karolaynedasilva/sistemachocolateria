@@ -8,15 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotBlank(message = "Campo obrigatório")
     private String nome;
     private String email;
     private String telefone;
     private String cpf;
+    private String rg;
     private int idade;
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
@@ -63,6 +67,12 @@ public class Funcionario {
     }
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+    public String getRg() {
+        return rg;
+    }
+    public void setRg(String rg) {
+        this.rg = rg;
     }
     
 }

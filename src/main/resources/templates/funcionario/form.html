@@ -1,54 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-  <head th:include="layout :: head"></head>
-  <body>
-  <nav th:replace="layout :: menu"></nav>
+    <head th:include="layout :: head"></head>
+    <body>
+    <nav th:replace="layout :: menu"></nav>
     <main class="container">
-      <form th:action="@{/funcionario/(form)}" method="POST" th:objectt="${funcionario}">
-        <h2>Cadastre um novo Funcionario:</h2>
-        <input type="hidden" th:field="*{id}">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" th:field="*{funcionario.email}">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-          </div>
-          </div>
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+        <form th:action="@{/funcionarios/(form)}" method="POST" th:object="${funcionario}">
+            <h2>Cadastre um novo Funcionario:</h2>
+            <input type="hidden" th:field="*{id}">
+            <div class="col-md-6">
+              <label for="inputnome" class="form-label">Nome:</label>
+              <input type="text" class="form-control" id="inputnome" th:field="*{nome}">
+              <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger"></p> 
+            </div>
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="inputEmail4" th:field="*{email}">
+              </div>
+              <div class="col-md-6">
+                <label for="txttelefone" class="form-label">Telefone:</label>
+                <input type="number" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">   
+            </div> 
+            <div class="col-md-6">
+              <label for="txtCPF">CPF:</label>
+              <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{cpf}" class="form-control" id="txtCPF">    
+            </div>  
+            <div class="col-md-6">
+              <label for="txtrg">RG:</label>
+              <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{rg}" class="form-control" id="txtrg">    
+            </div>  
+            <div class="col-md-6">
+              <label for="inputidade" class="form-label">Idade:</label>
+              <input type="number" class="form-control" id="inputidade" th:field="*{idade}">
+            </div>
+            <div class="col-md-6">
+              <label for="inputEndereco" class="form-label">Endereço:</label>
+              <input type="text" class="form-control" id="inputEndereco" th:field="*{endereco}">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </form>
     </main>
