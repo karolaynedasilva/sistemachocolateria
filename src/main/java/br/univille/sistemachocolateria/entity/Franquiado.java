@@ -16,12 +16,8 @@ public class Franquiado {
     private long id;
     @NotBlank(message = "Campo obrigatório")
     private String nome;
-<<<<<<< HEAD
     @NotBlank(message = "Campo obrigatório")
     private String CNPJ; 
-=======
-    private String CNPJ;
->>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;

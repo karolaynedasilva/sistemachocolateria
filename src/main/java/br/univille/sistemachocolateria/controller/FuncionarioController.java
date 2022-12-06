@@ -34,12 +34,8 @@ public class FuncionarioController {
     public ModelAndView novo() {
         var funcionario = new Funcionario();
         var listaFuncionarios = service.getAll();
-<<<<<<< HEAD
         var listaUfs = UF.values();
         HashMap<String,Object> dados = new HashMap<>();
-=======
-        HashMap<String, Object> dados = new HashMap<>();
->>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
         dados.put("funcionario", funcionario);
         dados.put("listaFuncionarios", listaFuncionarios);
         dados.put("ufs", listaUfs);

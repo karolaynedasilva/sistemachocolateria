@@ -25,13 +25,7 @@ public class Funcionario {
     private String email;
     @NotBlank(message = "Campo obrigatório")
     private String telefone;
-<<<<<<< HEAD
     @NotBlank(message = "Campo obrigatório")
-=======
-    @NotBlank(message = "CPF é obrigatório")
-    @Column(name = "cpf")
-    @CPF
->>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
     private String cpf;
     @NotBlank(message = "Campo obrigatório")
     private String rg;
