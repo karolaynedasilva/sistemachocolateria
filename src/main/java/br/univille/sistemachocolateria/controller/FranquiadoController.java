@@ -55,9 +55,11 @@ public class FranquiadoController {
     public ModelAndView alterar(@PathVariable("id") long id){
         var franquiado = service.findById(id);
         var listaFranquiados = service.getAll();
+        var listaUfs = UF.values();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("franquiado", franquiado);
         dados.put("listaFranquiados", listaFranquiados);
+        dados.put("ufs", listaUfs);
         return new ModelAndView("franquiado/form", dados);
     }
     @GetMapping("/delete/{id}")

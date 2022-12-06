@@ -60,9 +60,11 @@ public class FuncionarioController {
     public ModelAndView alterar(@PathVariable("id") long id) {
         var funcionario = service.findById(id);
         var listaFuncionarios = service.getAll();
+        var listaUfs = UF.values();
         HashMap<String, Object> dados = new HashMap<>();
         dados.put("funcionario", funcionario);
         dados.put("listaFuncionarios", listaFuncionarios);
+        dados.put("ufs", listaUfs);
         return new ModelAndView("funcionario/form", dados);
     }
 
