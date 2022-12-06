@@ -39,8 +39,8 @@
                 <div class="col-md-2">
                     <label for="categoria" class="form-label">UF</label>
                     <select class="form-control" id="uf" th:field="*{endereco.uf}">
-                      <option value="">Selecione...</option>
-                      <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.descricao}">Novo</option>
+                        <option value="">Selecione...</option>
+                        <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.descricao}">Novo</option>
                     </select>
                   </div>
                   <div class="col-md-4">
@@ -52,6 +52,5 @@
         </main>
         <footer th:include="layout :: footer"></footer>
         <script type="text/javascript" th:src="@{/app.js}"></script>
-        <script type="text/javascript" th:src="@{/teste.js}"></script>
     </body>
 </html>
