@@ -33,7 +33,6 @@ public class Funcionario {
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
-
     public long getId() {
         return id;
     }
@@ -73,29 +72,23 @@ public class Funcionario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-
     public String getRg() {
         return rg;
     }
-
     public void setRg(String rg) {
         this.rg = rg;
     }
-
     public int getIdade() {
         return idade;
     }
-
     public void setIdade(int idade) {
         this.idade = idade;
     }
-
     public Endereco getEndereco() {
         return endereco;
     }
-
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-
+    
 }
