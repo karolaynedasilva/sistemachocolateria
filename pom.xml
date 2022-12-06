@@ -17,6 +17,7 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+<<<<<<< HEAD
        
 	    <dependency>
             <groupId>org.webjars.bower</groupId>
@@ -28,6 +29,14 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
         <dependency>
+=======
+
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>	
+		<dependency>
+>>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
 			<groupId>org.webjars.bower</groupId>
 			<artifactId>jquery</artifactId>
 			<version>3.6.1</version>

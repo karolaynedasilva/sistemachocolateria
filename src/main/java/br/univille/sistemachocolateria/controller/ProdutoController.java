@@ -1,7 +1,10 @@
 package br.univille.sistemachocolateria.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +34,11 @@ public class ProdutoController {
     }
 
     @PostMapping(params = "form")
-    public ModelAndView save(Produto produto) {
+    public ModelAndView save(@Valid Produto produto,
+            BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ModelAndView("produto/form", "produto", produto);
+        }
         service.save(produto);
         return new ModelAndView("redirect:/produtos");
     }

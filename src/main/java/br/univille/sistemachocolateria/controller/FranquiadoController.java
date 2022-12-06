@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import br.univille.sistemachocolateria.entity.Franquiado;
 import br.univille.sistemachocolateria.entity.UF;
 import br.univille.sistemachocolateria.service.FranquiadoService;

@@ -16,55 +16,65 @@ public class Franquiado {
     private long id;
     @NotBlank(message = "Campo obrigatório")
     private String nome;
+<<<<<<< HEAD
     @NotBlank(message = "Campo obrigatório")
     private String CNPJ; 
+=======
+    private String CNPJ;
+>>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
-    @NotBlank(message = "Campo obrigatório")
     private String email;
     @NotBlank(message = "Campo obrigatório")
     private String telefone;
-    
-    //TODO private List<Produtos> produtos;
 
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getCNPJ() {
         return CNPJ;
     }
+
     public void setCNPJ(String cNPJ) {
         CNPJ = cNPJ;
     }
+
     public Endereco getEndereco() {
         return endereco;
     }
+
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getTelefone() {
         return telefone;
     }
+
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-   
-    
-    
+
 }

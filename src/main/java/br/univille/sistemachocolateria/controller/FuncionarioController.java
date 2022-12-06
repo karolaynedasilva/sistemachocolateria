@@ -20,31 +20,38 @@ import br.univille.sistemachocolateria.service.FuncionarioService;
 @Controller
 @RequestMapping("/funcionarios")
 public class FuncionarioController {
-    
+
     @Autowired
     private FuncionarioService service;
 
     @GetMapping
-    public ModelAndView index(){
+    public ModelAndView index() {
         var listaFuncionarios = service.getAll();
-        return new ModelAndView("funcionario/index","listaFuncionarios",listaFuncionarios);
+        return new ModelAndView("funcionario/index", "listaFuncionarios", listaFuncionarios);
     }
+
     @GetMapping("/novo")
-    public ModelAndView novo(){
+    public ModelAndView novo() {
         var funcionario = new Funcionario();
         var listaFuncionarios = service.getAll();
+<<<<<<< HEAD
         var listaUfs = UF.values();
         HashMap<String,Object> dados = new HashMap<>();
+=======
+        HashMap<String, Object> dados = new HashMap<>();
+>>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
         dados.put("funcionario", funcionario);
         dados.put("listaFuncionarios", listaFuncionarios);
         dados.put("ufs", listaUfs);
         return new ModelAndView("funcionario/form", dados);
     }
+
     @PostMapping(params = "form")
-    public ModelAndView save(@Valid Funcionario funcionario, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+
+    public ModelAndView save(@Valid Funcionario funcionario, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             var listaFuncionarios = service.getAll();
-            HashMap<String,Object> dados = new HashMap<>();
+            HashMap<String, Object> dados = new HashMap<>();
             dados.put("funcionario", funcionario);
             dados.put("listaFuncionarios", listaFuncionarios);
             return new ModelAndView("funcionario/form", dados);
@@ -52,19 +59,20 @@ public class FuncionarioController {
         service.save(funcionario);
         return new ModelAndView("redirect:/funcionarios");
     }
+
     @GetMapping("/alterar/{id}")
-    public ModelAndView alterar(@PathVariable("id") long id){
+    public ModelAndView alterar(@PathVariable("id") long id) {
         var funcionario = service.findById(id);
         var listaFuncionarios = service.getAll();
-        HashMap<String,Object> dados = new HashMap<>();
+        HashMap<String, Object> dados = new HashMap<>();
         dados.put("funcionario", funcionario);
         dados.put("listaFuncionarios", listaFuncionarios);
         return new ModelAndView("funcionario/form", dados);
     }
+
     @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") long id){
+    public ModelAndView delete(@PathVariable("id") long id) {
         service.delete(id);
         return new ModelAndView("redirect:/funcionarios");
     }
 }
-

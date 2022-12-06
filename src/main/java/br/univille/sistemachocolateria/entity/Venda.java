@@ -30,8 +30,8 @@ public class Venda {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "venda_id")
     private List<ItemVenda> listaItens = new ArrayList<>();
-    
-    @ManyToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
     private Franquiado comprador;
 
     public Franquiado getComprador() {
