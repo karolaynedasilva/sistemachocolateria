@@ -6,19 +6,22 @@ body{
     font-family: Poppins;
     background-color: #dbe5fa;
 }
+h2{
+  font-variant-caps: all-small-caps;
+  font-weight: bold;
+  font-size: 3rem;
 
+}
 .topnav {
     overflow: hidden;
     background-color:#3E8AFF;
     position: relative;
 
   }
-  .topnav #myLinks {
+.topnav #myLinks {
     display: none;
-  }
-  
-
-  .topnav a {
+}
+.topnav a {
     color: white;
     padding: 16px 16px;
     text-decoration: none;
@@ -26,22 +29,16 @@ body{
     display: block;
 
   }
-  
-
 .topnav a.icon {
     display: block;
     position: absolute;
     right: 0;
     top: 0;
-
 }
-
-
 .topnav .links a:hover {
     color: black;
     background-color: azure;
 }
-
 .logo {
     color: white;
 }

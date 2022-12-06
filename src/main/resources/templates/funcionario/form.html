@@ -5,12 +5,12 @@
     <body>
     <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
-        <form th:action="@{/funcionario/(form)}" method="POST" th:objectt="${funcionario}">
+        <form th:action="@{/funcionario/(form)}" method="POST" th:object="${funcionario}">
             <h2>Cadastre um novo Funcionario:</h2>
             <input type="hidden" th:field="*{id}">
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" th:field="*{funcionario.email}">
+                <input type="email" class="form-control" id="inputEmail4" th:field="*{email}">
               </div>
               <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Password</label>
