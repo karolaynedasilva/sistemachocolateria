@@ -11,6 +11,9 @@
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email</label>
                 <input type="email" class="form-control" id="inputEmail4" th:field="*{funcionario.email}">
+                <p th:if="${#fields.hasErrors('email')}"
+                   th:errors="*{email}"      
+                   class="alert alert-danger"></p>
               </div>
               <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Password</label>

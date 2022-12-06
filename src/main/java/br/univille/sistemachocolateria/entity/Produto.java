@@ -6,13 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -35,7 +30,8 @@ public class Produto {
      * 
      * @Min(value = 1, message = "some key or default message")
      */
-    private float valor;
+    @DecimalMin(value = "1", message = "Valor mínimo é um")
+    private Double valor = 0d;
 
     public long getId() {
         return id;
@@ -61,11 +57,11 @@ public class Produto {
         this.tipo = tipo;
     }
 
-    public float getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

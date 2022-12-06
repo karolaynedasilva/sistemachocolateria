@@ -2,12 +2,15 @@ package br.univille.sistemachocolateria.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.HashMap;
+
+import javax.validation.Valid;
 
 import br.univille.sistemachocolateria.entity.Funcionario;
 import br.univille.sistemachocolateria.service.FuncionarioService;
@@ -35,7 +38,11 @@ public class FuncionarioController {
         return new ModelAndView("funcionario/form", dados);
     }
     @PostMapping(params = "form")
-    public ModelAndView save(Funcionario funcionario){
+    public ModelAndView save(@Valid Funcionario funcionario, 
+                            BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return new ModelAndView("clientes/form","funcionario",funcionario);
+        }
         service.save(funcionario);
         return new ModelAndView("redirect:/franquiados");
     }
