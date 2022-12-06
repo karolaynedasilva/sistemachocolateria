@@ -9,6 +9,7 @@
             <h2>Cadastre um novo Funcionario:</h2>
             <input type="hidden" th:field="*{id}">
             <div class="col-md-6">
+
               <label for="inputnome" class="form-label">Nome:</label>
               <input type="text" class="form-control" id="inputnome" th:field="*{nome}">
               <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger"></p> 
@@ -16,6 +17,7 @@
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email:</label>
                 <input type="text" class="form-control" id="inputEmail4" th:field="*{email}">
+
               </div>
               <div class="col-md-6">
                 <label for="txttelefone" class="form-label">Telefone:</label>
