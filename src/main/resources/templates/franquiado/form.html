@@ -1,8 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
     <head th:include="layout :: head"></head>
     <body>
-    <nav th:replace="layout :: menu"></nav>
+
         <main class="container">
             <form th:action="@{/franquiados/(form)}" method="POST" th:object="${franquiado}" class="row g-3">
                 <h2>Cadastre um novo Franquiado:</h2>

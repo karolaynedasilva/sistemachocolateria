@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-    <head th:include="layout :: head"></head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <head th:include="layout :: head"></head> 
     <body>
-    <nav th:replace="layout :: menu"></nav>
-    <main th:replace="layout :: principal"></main>
+    <main class="cards">
+        <section class="card funcionario">
+            <div class="icon">
+                <img src="/css/img/franquiado.png" alt="franquiado">
+            </div>
+            <h3>Cadastre um Franquiado</h3>
+            <span>Clique no botão para cadastrar um novo Franquiado</span>
+            <a href="/franquiados" class="button">Cadastre aqui</a>
+        </section>
+
+        <section class="card produto">
+            <div class="icon">
+                <img src="/css/img/produtos.png" alt="produtos">
+            </div>
+            <h3>Cadastre um Produto</h3>
+            <span>Clique no botão para cadastrar um novo Produto</span>
+            <a href="/produtos" class="button">Cadastre aqui</a>
+        </section>
+
+        <section class="card funcionario">
+            <div class="icon">
+                <img src="/css/img/funcionario.png" alt="funcionario">
+            </div>
+            <h3>Cadastre um Funcionário</h3>
+            <span>Clique no botão para cadastrar um novo Funcionário</span>
+            <a href="/funcionarios" class="button">Cadastre aqui</a>
+        </section>
+
+        <section class="card venda">
+            <div class="icon">
+                <img src="/css/img/venda.png" alt="vendas">
+            </div>
+            <h3>Cadastre uma nova Venda</h3>
+            <span>Clique no botão para cadastrar uma nova Venda</span>
+            <a href="/vendas" class="button">Cadastre aqui</a>
+        </section>
+        <section class="card estoque">
+            <div class="icon">
+                <img src="/css/img/estoque.png" alt="estoque">
+            </div>
+            <h3>Controle de Estoque</h3>
+            <span>Clique no botão para acessar o Controle de Estoque</span>
+            <a href="/estoque" class="button">Controle de Estoque</a>
+        </section>
+    </main>
     <footer th:include="layout :: footer"></footer>
     </body>
 </html>

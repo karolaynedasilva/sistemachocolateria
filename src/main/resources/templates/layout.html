@@ -5,52 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAYOUT DAS PAG</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
-
     
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/geral.css}">
 </head>
 <body>
 
-    <nav th:fragment="menu" class="navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Sistema Chocolateria</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/franquiados">Franquiados</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/produtos">Produtos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/estoque">Estoque</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/vendas">Vendas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/funcionarios">Funcionários</a>
-              </li>
-            </ul>
-          </div>
+    <!-- <nav th:fragment="menu" class="navbar">
+      <div class="topnav">
+        <h1 href="#home" class="logo">Sistema Chocolateria</h1>
+        <div id="myLinks" class="links">
+          <a href="/franquiados">Franquiado</a>
+          <a href="/funcionarios">Funcionário</a>
+          <a href="/produtos">Produto</a>
+          <a href="/vendas">Venda</a>
+          <a href="/estoque">Estoque</a>
         </div>
-      </nav>
-
-     <main th:fragment="principal">
-      <div class="cards">
-        <section>oi</section>
-        <section>oi</section>
-        <section>oi</section>
-        <section>oi</section>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars" style="font-size:40px"></i>
+        </a>
       </div>
-     </main>
+      </nav> -->
+
+     <main th:fragment="principal"></main>
 
       <footer th:fragment="footer">
           <script th:src="@{/webjars/jquery/3.6.1/dist/jquery.min.js}"></script>

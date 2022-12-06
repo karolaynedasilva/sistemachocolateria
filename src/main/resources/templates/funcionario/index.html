@@ -3,7 +3,7 @@
 
     <head th:include="layout :: head"></head>
     <body>
-    <nav th:replace="layout :: menu"></nav>
+    <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
         <h2>Controle de Funcionários</h2>
         <a href="/funcionarios/novo" class="btn btn-primary">Novo</a>
@@ -24,7 +24,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="umFranquiado : ${listaFranquiados}">
+
+
                    <td th:text="${umFuncionario.id}"></td>
                    <td th:text="${umFuncionario.nome}"></td>
                    <td th:text="${umFuncionario.idade}"></td>
