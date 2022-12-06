@@ -4,79 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAYOUT DAS PAG</title>
-    
+    <title>CHOCOLATERIA</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.0/css/bootstrap.min.css}">
-    <link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" th:href="@{/css/geral.css}">
 </head>
 <body>
 
-    <nav th:fragment="menu" class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Sistema Chocolateria</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/franquiados">Franquiados</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/produtos">Produtos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/estoque">Estoque</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/vendas">Vendas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/funcionarios">Funcionários</a>
-              </li>
-            </ul>
-          </div>
+    <!-- <nav th:fragment="menu" class="navbar">
+      <div class="topnav">
+        <h1 href="#home" class="logo">Sistema Chocolateria</h1>
+        <div id="myLinks" class="links">
+          <a href="/franquiados">Franquiado</a>
+          <a href="/funcionarios">Funcionário</a>
+          <a href="/produtos">Produto</a>
+          <a href="/vendas">Venda</a>
+          <a href="/estoque">Estoque</a>
         </div>
-      </nav>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars" style="font-size:40px"></i>
+        </a>
+      </div>
+      </nav> -->
 
-      <main class="container" th:fragment="principal"
-      style="min-height: 485px;">
-      
-        <div class="card border-dark mb-3"
-        style="border: 1px solid #ccc; padding: 10px">
-        <section>
-          <h2 style="border-bottom: 2px solid #000; margin-bottom: 20px">Controle de Geral</h2>
-          <div class="card-deck">
-            <div class="card border-primary mb-3"
-              style="max-width: 33rem;">
-              <div class="card-header">Funcionários</div>
-              <div class="card-body">
-                <h6 class="card-title text-center">Quantidade Atual</h6>
-                <p class="card-text text-center" th:text=${estoque.qtd_produto}><span style="font-size: 40px;"></span></p>
-              </div>
-            </div>
-            <div class="card border-danger mb-3"
-                  style="max-width: 33rem;">
-                  <div class="card-header">Franquiados</div>
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Quantidade Atual</h6>
-                    <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_franquiado}></span></p>
-                  </div>
-                </div><div class="card border-success mb-3"
-                  style="max-width: 33rem;">
-                  <div class="card-header">Produtos</div>
-                  <div class="card-body">
-                    <h6 class="card-title text-center">Quantidade Atual</h6>
-                    <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_produto}></span></p>
-                  </div>
-                </div>
-              </div>
-            </section>
-    </main>
+     <main th:fragment="principal"></main>
 
       <footer th:fragment="footer">
           <script th:src="@{/webjars/jquery/3.6.1/dist/jquery.min.js}"></script>

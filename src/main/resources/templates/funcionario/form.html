@@ -3,7 +3,7 @@
 
     <head th:include="layout :: head"></head>
     <body>
-    <nav th:replace="layout :: menu"></nav>
+    <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
         <form th:action="@{/funcionarios/(form)}" method="POST" th:object="${funcionario}" class="row g-3">
             <h2>Cadastre um novo Funcionario:</h2>
