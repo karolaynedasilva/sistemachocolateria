@@ -33,10 +33,6 @@ public class Funcionario {
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
-<<<<<<< HEAD
-=======
-
->>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
     public long getId() {
         return id;
     }
@@ -76,7 +72,6 @@ public class Funcionario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-<<<<<<< HEAD
     public String getRg() {
         return rg;
     }
@@ -96,31 +91,4 @@ public class Funcionario {
         this.endereco = endereco;
     }
     
-=======
-
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
->>>>>>> 730c29f17ce8b06ba5b66e79e3252661633f10f4
 }
