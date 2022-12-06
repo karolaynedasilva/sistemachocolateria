@@ -5,7 +5,7 @@
     <body>
     <nav th:replace="layout :: menu"></nav>
     <main class="container">
-        <form th:action="@{/funcionarios/(form)}" method="POST" th:object="${funcionario}">
+        <form th:action="@{/funcionarios/(form)}" method="POST" th:object="${funcionario}" class="row g-3">
             <h2>Cadastre um novo Funcionario:</h2>
             <input type="hidden" th:field="*{id}">
             <div class="col-md-6">
@@ -23,7 +23,8 @@
             </div> 
             <div class="col-md-6">
               <label for="txtCPF">CPF:</label>
-              <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{cpf}" class="form-control" id="txtCPF">    
+              <input placeholder="XXX.XXX.XXX-XX" type="text" th:field="*{cpf}" class="ls-mask-cpf" id="txtCPF">   
+              <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="alert alert-danger"></p>  
             </div>  
             <div class="col-md-6">
               <label for="txtrg">RG:</label>
@@ -33,15 +34,35 @@
               <label for="inputidade" class="form-label">Idade:</label>
               <input type="number" class="form-control" id="inputidade" th:field="*{idade}">
             </div>
-            <div class="col-md-6">
-              <label for="inputEndereco" class="form-label">Endereço:</label>
-              <input type="text" class="form-control" id="inputEndereco" th:field="*{endereco}">
+            <div>
+              <div class="form-group">
+                  <label for="txtLogradouro">Logradouro:</label>
+                  <input type="text" th:field="*{endereco.logradouro}"class="form-control" id="txtLogradouro">
+                  <p th:if="${#fields.hasErrors('endereco.logradouro')}" th:errors="*{endereco.logradouro}" class="alert alert-danger"></p>
+              </div>
+              <div class="form-group">
+                  <label for="txtBairro" class="form-label">Bairro:</label>
+                  <input type="text" th:field="*{endereco.bairro}"class="form-control" id="txtBairro">
+              </div>
+          </div>
+          
+          <div class="col-md-2">
+              <label for="categoria" class="form-label">UF</label>
+              <select class="form-control" id="uf" th:field="*{endereco.uf}">
+                <option value="">Selecione...</option>
+                <option th:each="uf : ${ufs}" th:value="${uf}" th:field="*{endereco.uf}">Novo</option>
+              </select>
             </div>
+            <div class="col-md-4">
+              <label for="txtCidade" class="form-label">Cidade:</label>
+              <input type="text" th:field="*{endereco.cidade}"class="form-control" id="txtCidade">
+          </div>
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </form>
     </main>
     <footer th:include="layout :: footer"></footer>
+    <script type="text/javascript" th:src="@{/app.js}"></script>
     </body>
 </html>

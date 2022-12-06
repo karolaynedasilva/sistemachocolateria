@@ -23,23 +23,19 @@
                 </thead>
                 <tbody>
                     <tr th:each="umFranquiado : ${listaFranquiados}">
-                       <td th:text="${umFranquiado.id}"></td>
-                       <td th:text="${umFranquiado.nome}"></td>
-                       <td th:text="${umFranquiado.email}"></td>
-                       <td th:text="${umFranquiado.telefone}"></td>
-                       <td th:text="${umFranquiado.CNPJ}"></td>
-                       <td th:text="${umFranquiado.endereco.logradouro}"></td>
-                       <td th:text="${umFranquiado.endereco.bairro}"></td>
-                       <td></td>
-                       <td th:text="${umFranquiado.endereco.cidade}"></td>
-                       
-                       <td></td>
-                       <td></td>
-                       <td> 
-                            
+                        <td th:text="${umFranquiado.id}"></td>
+                        <td th:text="${umFranquiado.nome}"></td>
+                        <td th:text="${umFranquiado.email}"></td>
+                        <td th:text="${umFranquiado.telefone}"></td>
+                        <td th:text="${umFranquiado.CNPJ}"></td>
+                        <td th:text="${umFranquiado.endereco.logradouro}"></td>
+                        <td th:text="${umFranquiado.endereco.bairro}"></td>
+                        <td></td>
+                        <td th:text="${umFranquiado.endereco.cidade}"></td>
+                        <td> 
                            <a th:href="@{'franquiados/alterar/' + ${umFranquiado.id}}" class="btn btn-warning">Alterar</a>
                            <button class="btn btn-danger js-delete" th:data-id="${umFranquiado.id}">Excluir</button>
-                       </td>
+                        </td>
                     </tr>
                 </tbody>
             </table>   
