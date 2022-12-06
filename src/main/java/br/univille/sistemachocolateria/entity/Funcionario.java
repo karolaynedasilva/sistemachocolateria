@@ -16,9 +16,13 @@ public class Funcionario {
     private long id;
     @NotBlank(message = "Campo obrigatório")
     private String nome;
+    @NotBlank(message = "Campo obrigatório")
     private String email;
+    @NotBlank(message = "Campo obrigatório")
     private String telefone;
+    @NotBlank(message = "Campo obrigatório")
     private String cpf;
+    @NotBlank(message = "Campo obrigatório")
     private String rg;
     private int idade;
     @OneToOne(cascade = CascadeType.ALL, optional = false)

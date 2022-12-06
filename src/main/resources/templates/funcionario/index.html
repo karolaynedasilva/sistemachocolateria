@@ -35,7 +35,7 @@
                     <td th:text="${umFuncionario.idade}"></td>
                     <td th:text="${umFuncionario.endereco.logradouro}"></td>
                     <td th:text="${umFuncionario.endereco.bairro}"></td>
-                    <td></td>
+                    <td th:text="${umFuncionario.endereco.uf}"></td>
                     <td th:text="${umFuncionario.endereco.cidade}"></td>
                     <td> 
                        <a th:href="@{'funcionarios/alterar/' + ${umFuncionario.id}}" class="btn btn-warning">Alterar</a>

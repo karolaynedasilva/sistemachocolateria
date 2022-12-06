@@ -19,11 +19,13 @@
                 </div> 
                 <div class="col-md-6">
                     <label for="txttelefone" class="form-label">Telefone:</label>
-                    <input type="number" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">   
+                    <input type="text" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">   
+                    <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="alert alert-danger"></p>
                 </div> 
                 <div class="col-md-6">
                     <label for="txtCNPJ">CNPJ:</label>
-                    <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{CNPJ}" class="form-control" id="txtCNPJ">    
+                    <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{CNPJ}" class="form-control" id="txtCNPJ"> 
+                    <p th:if="${#fields.hasErrors('CNPJ')}" th:errors="*{CNPJ}" class="alert alert-danger"></p>   
                 </div>   
                 <div>
                     <div class="form-group">
@@ -41,10 +43,10 @@
                     <label for="categoria" class="form-label">UF</label>
                     <select class="form-control" id="uf" th:field="*{endereco.uf}">
                         <option value="">Selecione...</option>
-                        <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf.descricao}">Novo</option>
+                        <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf}"></option>
                     </select>
-                  </div>
-                  <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
                     <label for="txtCidade" class="form-label">Cidade:</label>
                     <input type="text" th:field="*{endereco.cidade}"class="form-control" id="txtCidade">
                 </div>

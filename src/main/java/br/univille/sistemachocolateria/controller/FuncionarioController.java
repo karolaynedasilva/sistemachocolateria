@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.HashMap;
 
 import javax.validation.Valid;
 
 import br.univille.sistemachocolateria.entity.Funcionario;
+import br.univille.sistemachocolateria.entity.UF;
 import br.univille.sistemachocolateria.service.FuncionarioService;
 
 @Controller
@@ -31,9 +33,11 @@ public class FuncionarioController {
     public ModelAndView novo(){
         var funcionario = new Funcionario();
         var listaFuncionarios = service.getAll();
+        var listaUfs = UF.values();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("funcionario", funcionario);
         dados.put("listaFuncionarios", listaFuncionarios);
+        dados.put("ufs", listaUfs);
         return new ModelAndView("funcionario/form", dados);
     }
     @PostMapping(params = "form")

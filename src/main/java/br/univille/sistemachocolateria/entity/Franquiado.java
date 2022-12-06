@@ -16,12 +16,14 @@ public class Franquiado {
     private long id;
     @NotBlank(message = "Campo obrigatório")
     private String nome;
+    @NotBlank(message = "Campo obrigatório")
     private String CNPJ; 
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
     @NotBlank(message = "Campo obrigatório")
     private String email;
+    @NotBlank(message = "Campo obrigatório")
     private String telefone;
     
     //TODO private List<Produtos> produtos;

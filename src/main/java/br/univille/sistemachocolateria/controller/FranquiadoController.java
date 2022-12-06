@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.sistemachocolateria.entity.Franquiado;
+import br.univille.sistemachocolateria.entity.UF;
 import br.univille.sistemachocolateria.service.FranquiadoService;
 
 @Controller
@@ -32,9 +33,11 @@ public class FranquiadoController {
     public ModelAndView novo(){
         var franquiado = new Franquiado();
         var listaFranquiados = service.getAll();
+        var listaUfs = UF.values();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("franquiado", franquiado);
         dados.put("listaFranquiados", listaFranquiados);
+        dados.put("ufs", listaUfs);
         return new ModelAndView("franquiado/form", dados);
     }
     @PostMapping(params = "form")
