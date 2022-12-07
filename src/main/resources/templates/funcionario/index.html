@@ -3,11 +3,12 @@
 
     <head th:include="layout :: head"></head>
     <body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
+    
     <main class="container">
+        <nav th:replace="layout :: menu"></nav>
         <h2>Controle de Funcionários</h2>
-        <a href="/funcionarios/novo" class="btn btn-primary">Novo</a>
-        <table class="table table-bordered" id="tabfuncionarios" >
+        
+        <table class="table table-bordered table-light" id="tabfuncionarios" >
             <thead>
                 <tr>
                     <th>Id</th>
@@ -22,7 +23,7 @@
                     <th>UF</th>
                     <th>Cidade</th>
                     <th>Editar</th>
-                    <th></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +46,7 @@
                 </tr>
             </tbody>
         </table> 
+        <a href="/funcionarios/novo" class="btn btn-primary">Novo</a>
     </main>
     <div class="modal" tabindex="-1" id="modalfuncionario">
         <div class="modal-dialog">
