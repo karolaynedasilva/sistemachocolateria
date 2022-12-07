@@ -1,8 +1,12 @@
 package br.univille.sistemachocolateria.controller;
 
 import java.util.HashMap;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,16 +59,25 @@ public class VendaController {
 
     
     @PostMapping(params = "incitem")
-    public ModelAndView incluirItem(Venda venda,
-            ItemVenda novoItem) {
-        venda.getListaItens().add(novoItem);
+    public ModelAndView incluirItem(@Valid Venda venda,
+            @Valid ItemVenda novoItem,
+            BindingResult bindingResult) {
+
+        HashMap<String, Object> dados = new HashMap<>();
+        if (!bindingResult.hasErrors()) {
+            venda.getListaItens().add(novoItem);    
+            dados.put("novoItem", new ItemVenda());
+        }else{
+            dados.put("novoItem", novoItem);
+        }
+        
         var listaFranquiados = franquiadoService.getAll();
         var listaProdutos = produtoService.getAll();
-        HashMap<String, Object> dados = new HashMap<>();
+        
         dados.put("venda", venda);
         dados.put("listaFranquiados", listaFranquiados);
         dados.put("listaProdutos", listaProdutos);
-        dados.put("novoItem", new ItemVenda());
+        
         return new ModelAndView("venda/form", dados);
     }
 

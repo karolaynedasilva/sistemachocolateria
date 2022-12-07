@@ -86,10 +86,15 @@
                     <div class="form-group">
                         <label for="txtQuantidade">Quantidade:</label>
                         <input type="number" id="txtQuantidade" class="form-control" th:field="${novoItem.quantidade}">
+                        <!-- <p th:if="${#fields.hasErrors('${Quantidade}')}" th:errors="${novoItem.quantidade}" class="alert alert-danger">
+                        </p> -->
                     </div>
                     <div class="form-group">
                         <label for="txtValorVenda">Valor da Venda:</label>
                         <input type="number" id="txtValorVenda" class="form-control" th:field="${novoItem.valorVenda}">
+                        <!-- <p th:if="${#fields.hasErrors('${ValorVenda}')}" th:errors="${novoItem.valorVenda}" class="alert alert-danger">
+                        </p> -->
+                        
                     </div>
                     <button type="submit" name="incitem" class="btn btn-primary">Adicionar Item</button>
                 </div>

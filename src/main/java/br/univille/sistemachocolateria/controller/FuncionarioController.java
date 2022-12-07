@@ -43,7 +43,6 @@ public class FuncionarioController {
     }
 
     @PostMapping(params = "form")
-
     public ModelAndView save(@Valid Funcionario funcionario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             var listaFuncionarios = service.getAll();
