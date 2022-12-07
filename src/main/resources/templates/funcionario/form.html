@@ -9,7 +9,6 @@
             <h2>Cadastre um novo Funcionario:</h2>
             <input type="hidden" th:field="*{id}">
             <div class="col-md-6">
-
               <label for="inputnome" class="form-label">Nome:</label>
               <input type="text" class="form-control" id="inputnome" th:field="*{nome}">
               <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger"></p> 
@@ -17,20 +16,22 @@
             <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Email:</label>
                 <input type="text" class="form-control" id="inputEmail4" th:field="*{email}">
-
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></p> 
               </div>
               <div class="col-md-6">
                 <label for="txttelefone" class="form-label">Telefone:</label>
-                <input type="number" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">   
+                <input type="text" placeholder="(00) 0 0000-0000" th:field="*{telefone}" class="form-control" id="txttelefone">
+                <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="alert alert-danger"></p>   
             </div> 
             <div class="col-md-6">
               <label for="txtCPF">CPF:</label>
-              <input placeholder="XXX.XXX.XXX-XX" type="text" th:field="*{cpf}" class="ls-mask-cpf" id="txtCPF">   
+              <input placeholder="XXX.XXX.XXX-XX" type="text" th:field="*{cpf}" class="form-control" id="txtCPF">   
               <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="alert alert-danger"></p>  
             </div>  
             <div class="col-md-6">
               <label for="txtrg">RG:</label>
-              <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{rg}" class="form-control" id="txtrg">    
+              <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{rg}" class="form-control" id="txtrg"> 
+              <p th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}" class="alert alert-danger"></p>   
             </div>  
             <div class="col-md-6">
               <label for="inputidade" class="form-label">Idade:</label>
@@ -52,7 +53,7 @@
               <label for="categoria" class="form-label">UF</label>
               <select class="form-control" id="uf" th:field="*{endereco.uf}">
                 <option value="">Selecione...</option>
-                <option th:each="uf : ${ufs}" th:value="${uf}" th:field="*{endereco.uf}">Novo</option>
+                <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf}"></option>
               </select>
             </div>
             <div class="col-md-4">

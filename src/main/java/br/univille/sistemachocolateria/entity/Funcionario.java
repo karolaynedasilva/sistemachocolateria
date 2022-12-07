@@ -23,11 +23,11 @@ public class Funcionario {
     private String nome;
     @NotBlank(message = "Campo obrigatório")
     private String email;
+    @NotBlank(message = "Campo obrigatório")
     private String telefone;
-    @NotBlank(message = "CPF é obrigatório")
-    @Column(name = "cpf")
-    @CPF
+    @NotBlank(message = "Campo obrigatório")
     private String cpf;
+    @NotBlank(message = "Campo obrigatório")
     private String rg;
     private int idade;
     @OneToOne(cascade = CascadeType.ALL, optional = false)
