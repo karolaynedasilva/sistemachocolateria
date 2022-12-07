@@ -4,10 +4,11 @@
 <head th:include="layout :: head"></head>
 
 <body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
+    <nav th:replace="layout :: menu"></nav>
     <main class="container">
-        <a href="/vendas/novo" class="btn btn-primary">Novo</a>
-        <table class="table" >
+       <h2 style="text-align: center;">Controle de saída</h2>
+  
+        <table class=" table table-bordered  table-light" >
             <thead>
                 <tr>
                     <th>Data da Venda</th>
@@ -24,6 +25,7 @@
                 </tr>
             </tbody>
         </table>
+        <a href="/vendas/novo" class="btn btn-primary">Novo</a>
     </main>
     <footer th:include="layout :: footer"></footer>
 </body>

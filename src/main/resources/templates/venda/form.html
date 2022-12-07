@@ -1,62 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
 <head th:include="layout :: head"></head>
-
 <body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
     <main class="container">
         <form th:action="@{/vendas}" method="POST" th:object="${venda}">
 
             <input type="hidden" th:field="*{id}">
+            <h2 style="text-align: center;">registros de vendas</h2>
 
-            <div class="form-group">
-                <label for="txtData">Data da Venda:</label>
-                <input type="date" th:field="*{data}" class="form-control" id="txtData">
-            </div>
-            <div class="form-group">
-                <label>Franquiado:</label>
-                <select class="form-select" th:field="*{comprador}">
-                    <option th:each="umFranquiado : ${listaFranquiados}" th:text="${umFranquiado.nome}" th:value="${umFranquiado.id}"></option>
-                </select>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        Itens de Venda Vinculados
-                    </h5>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Marca</th>
-                                <th>Tipo</th>
-                                <th>Quantidade</th>
-                                <th>Valor da Venda</th>
-                                <th></th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="umItem, stat : *{listaItens}">
-                                <input type="hidden" th:field="*{listaItens[__${stat.index}__].produto.id}">
-                                <td th:text="${umItem.produto.marca}"></td>
-                                <input type="hidden" th:field="*{listaItens[__${stat.index}__].produto.marca}">
-                                <td th:text="${umItem.produto.tipo}"></td>
-                                <input type="hidden" th:field="*{listaItens[__${stat.index}__].produto.tipo}">
-                                <td th:text="${umItem.quantidade}"></td>
-                                <input type="hidden" th:field="*{listaItens[__${stat.index}__].quantidade}">
-                                <td th:text="${umItem.valorVenda}"></td>
-                                <input type="hidden" th:field="*{listaItens[__${stat.index}__].valorVenda}">
-
-                                <td>
-                                    <button class="btn btn-danger" type="submit" name="removeitem" th:value="__${stat.index}__">Remover</button>
-                                </td>
-
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -96,10 +47,61 @@
                         </p> -->
                         
                     </div>
+                    <div class="form-group">
+                        <label for="txtData">Data da Venda:</label>
+                        <input type="date" th:field="*{data}" class="form-control" id="txtData">
+                    </div>
+                    <div class="form-group">
+                        <label>Franquiado:</label>
+                        <select class="form-select" th:field="*{comprador}">
+                            <option th:each="umFranquiado : ${listaFranquiados}" th:text="${umFranquiado.nome}" th:value="${umFranquiado.id}"></option>
+                        </select>
+                    </div>
+                    <br>
                     <button type="submit" name="incitem" class="btn btn-primary">Adicionar Item</button>
                 </div>
+                <br>
             </div>
-            <button type="submit" name="save" class="btn btn-primary">Enviar</button>
+            <form th:action="@{/vendas}" method="POST" th:object="${venda}">
+            
+                <div class="card" style="margin-top: 5%;">
+                    <div class="card-body" >
+                        <h5 class="card-title">
+                            Itens de Venda Vinculados
+                        </h5>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Marca</th>
+                                    <th>Tipo</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor da Venda</th>
+                                    <th></th>
+    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="umItem, stat : *{listaItens}">
+                                    <input type="hidden" th:field="*{listaItens[__${stat.index}__].produto.id}">
+                                    <td th:text="${umItem.produto.marca}"></td>
+                                    <input type="hidden" th:field="*{listaItens[__${stat.index}__].produto.marca}">
+                                    <td th:text="${umItem.produto.tipo}"></td>
+                                    <input type="hidden" th:field="*{listaItens[__${stat.index}__].produto.tipo}">
+                                    <td th:text="${umItem.quantidade}"></td>
+                                    <input type="hidden" th:field="*{listaItens[__${stat.index}__].quantidade}">
+                                    <td th:text="${umItem.valorVenda}"></td>
+                                    <input type="hidden" th:field="*{listaItens[__${stat.index}__].valorVenda}">
+    
+                                    <td>
+                                        <button class="btn btn-danger" type="submit" name="removeitem" th:value="__${stat.index}__">Remover</button>
+                                    </td>
+    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="submit" name="save" class="btn btn-primary">Enviar</button>
+            </form>
         </form>
     </main>
     <footer th:include="layout :: footer"></footer>
