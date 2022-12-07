@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
 <head th:include="layout :: head"></head>
-
 <body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
+    <nav th:replace="layout :: menu"></nav>
     <main class="container"> 
         <h2>Controle de Produtos:</h2>
-        
         <table class="table table-bordered table-light" id="tabprodutos" >
             <thead>
                 <tr>
@@ -20,11 +17,11 @@
             </thead>
             <tbody>
                 <tr th:each="umProduto : ${listaProdutos}">
-                    <td th:text="${umProduto.id}"    class="table-light"></td>
-                    <td th:text="${umProduto.marca}"    class="table-light"></td>
-                    <td th:text="${umProduto.tipo}"    class="table-light"></td>
-                    <td th:text="${umProduto.valor}"    class="table-light"></td>
-                    <td   class="table-light">
+                    <td th:text="${umProduto.id}" ></td>
+                    <td th:text="${umProduto.marca}" ></td>
+                    <td th:text="${umProduto.tipo}" ></td>
+                    <td th:text="${umProduto.valor}" ></td>
+                    <td >
                         <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-warning">Alterar</a>
                         <button class="btn btn-danger js-delete" th:data-id="${umProduto.id}">Excluir</button>
                     </td>
