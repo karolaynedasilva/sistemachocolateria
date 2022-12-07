@@ -7,7 +7,7 @@
     <main class="container">
         <h2>Controle de Funcionários</h2>
         <a href="/funcionarios/novo" class="btn btn-primary">Novo</a>
-        <table class="table table-bordered" id="tabfuncionarios">
+        <table class="table table-bordered" id="tabfuncionarios" >
             <thead>
                 <tr>
                     <th>Id</th>
@@ -22,21 +22,22 @@
                     <th>UF</th>
                     <th>Cidade</th>
                     <th>Editar</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="umFuncionario : ${listaFuncionarios}">
-                    <td th:text="${umFuncionario.id}"></td>
-                    <td th:text="${umFuncionario.nome}"></td>
-                    <td th:text="${umFuncionario.email}"></td>
-                    <td th:text="${umFuncionario.telefone}"></td>
-                    <td th:text="${umFuncionario.cpf}"></td>
-                    <td th:text="${umFuncionario.rg}"></td>
-                    <td th:text="${umFuncionario.idade}"></td>
-                    <td th:text="${umFuncionario.endereco.logradouro}"></td>
-                    <td th:text="${umFuncionario.endereco.bairro}"></td>
-                    <td></td>
-                    <td th:text="${umFuncionario.endereco.cidade}"></td>
+                    <td th:text="${umFuncionario.id}"class="table-light"></td>
+                    <td th:text="${umFuncionario.nome}"class="table-light"></td>
+                    <td th:text="${umFuncionario.email}"class="table-light"></td>
+                    <td th:text="${umFuncionario.telefone}"class="table-light"></td>
+                    <td th:text="${umFuncionario.cpf}"class="table-light"></td>
+                    <td th:text="${umFuncionario.rg}"class="table-light"></td>
+                    <td th:text="${umFuncionario.idade}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.logradouro}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.bairro}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.uf}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.cidade}" class="table-light"></td>
                     <td> 
                        <a th:href="@{'funcionarios/alterar/' + ${umFuncionario.id}}" class="btn btn-warning">Alterar</a>
                        <button class="btn btn-danger js-delete" th:data-id="${umFuncionario.id}">Excluir</button>
