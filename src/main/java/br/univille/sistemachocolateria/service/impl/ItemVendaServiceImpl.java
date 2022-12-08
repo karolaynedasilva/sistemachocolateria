@@ -9,6 +9,14 @@ import br.univille.sistemachocolateria.service.ItemVendaService;
 @Service
 public class ItemVendaServiceImpl implements ItemVendaService{
 
+    @Autowired
+    private ItemVendaRepository repository;
+
+    @Override
+    public int somaItens() {
+        return repository.somaItens();
+    }
+
     // @Autowired
     // private ItemVendaRepository itemVendaRepository;
 

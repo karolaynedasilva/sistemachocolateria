@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.sistemachocolateria.entity.ItemEstoque;
 import br.univille.sistemachocolateria.service.ItemEstoqueService;
+import br.univille.sistemachocolateria.service.ItemVendaService;
 
 @Controller
 @RequestMapping
@@ -16,11 +17,14 @@ public class ItemEstoqueController {
     
     @Autowired
 	private ItemEstoqueService itemService;
+    @Autowired
+    private ItemVendaService itemVendaService;
 
     @GetMapping("/estoque")
     public ModelAndView index(ModelMap model){
         ItemEstoque estoque = itemService.getResumo();
         model.addAttribute(estoque);
+        model.addAttribute("somaitensvenda", itemVendaService.somaItens());
         return new ModelAndView("estoque/index","estoque", estoque);
     }
 
