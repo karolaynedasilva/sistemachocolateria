@@ -19,9 +19,10 @@ public class Endereco {
     @NotNull(message = "campo obrigatório")
     @NotEmpty(message = "campo obrigatório")
     private String logradouro;
+    @NotNull(message = "campo obrigatório")
     @NotEmpty(message = "campo obrigatório")
     private String bairro;
-
+    @NotNull(message = "campo obrigatório")
     @NotEmpty(message = "campo obrigatório")
     private String cidade;
     private UF uf;
