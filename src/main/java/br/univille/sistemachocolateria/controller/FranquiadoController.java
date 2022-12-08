@@ -19,51 +19,57 @@ import br.univille.sistemachocolateria.service.FranquiadoService;
 @Controller
 @RequestMapping("/franquiados")
 public class FranquiadoController {
-    
+
     @Autowired
     private FranquiadoService service;
 
     @GetMapping
-    public ModelAndView index(){
+    public ModelAndView index() {
         var listaFranquiados = service.getAll();
-        return new ModelAndView("franquiado/index", "listaFranquiados",listaFranquiados);
+        return new ModelAndView("franquiado/index", "listaFranquiados", listaFranquiados);
     }
+
     @GetMapping("/novo")
-    public ModelAndView novo(){
+    public ModelAndView novo() {
         var franquiado = new Franquiado();
         var listaFranquiados = service.getAll();
         var listaUfs = UF.values();
-        HashMap<String,Object> dados = new HashMap<>();
+        HashMap<String, Object> dados = new HashMap<>();
         dados.put("franquiado", franquiado);
         dados.put("listaFranquiados", listaFranquiados);
         dados.put("ufs", listaUfs);
         return new ModelAndView("franquiado/form", dados);
     }
+
     @PostMapping(params = "form")
-    public ModelAndView save(@Valid Franquiado franquiado, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public ModelAndView save(@Valid Franquiado franquiado, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
             var listaFranquiados = service.getAll();
-            HashMap<String,Object> dados = new HashMap<>();
+            var listaUfs = UF.values();
+            HashMap<String, Object> dados = new HashMap<>();
             dados.put("franquiado", franquiado);
             dados.put("listaFranquiados", listaFranquiados);
+            dados.put("ufs", listaUfs);
             return new ModelAndView("franquiado/form", dados);
         }
         service.save(franquiado);
         return new ModelAndView("redirect:/franquiados");
     }
+
     @GetMapping("/alterar/{id}")
-    public ModelAndView alterar(@PathVariable("id") long id){
+    public ModelAndView alterar(@PathVariable("id") long id) {
         var franquiado = service.findById(id);
         var listaFranquiados = service.getAll();
         var listaUfs = UF.values();
-        HashMap<String,Object> dados = new HashMap<>();
+        HashMap<String, Object> dados = new HashMap<>();
         dados.put("franquiado", franquiado);
         dados.put("listaFranquiados", listaFranquiados);
         dados.put("ufs", listaUfs);
         return new ModelAndView("franquiado/form", dados);
     }
+
     @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") long id){
+    public ModelAndView delete(@PathVariable("id") long id) {
         service.delete(id);
         return new ModelAndView("redirect:/franquiados");
     }
