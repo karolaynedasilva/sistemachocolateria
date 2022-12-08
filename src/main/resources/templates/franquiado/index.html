@@ -1,12 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-    <head th:include="layout :: head"></head>
-    <body>
-    <nav th:replace="layout :: menu"></nav>
+       <head th:include="layout :: head"></head>
+      
         <main class="container">
+            <nav th:replace="layout :: menu"></nav>
             <h2>Controle de Franquiados:</h2>
-            <a href="/franquiados/novo" class="btn btn-primary">Novo</a>
-            <table class="table table-bordered" id="tabfranquiados">
+         
+            <table class="table table-bordered table-light" id="tabfranquiados">
                 <thead>
                     <tr>
                        <th>Id</th>
@@ -23,24 +22,23 @@
                 </thead>
                 <tbody>
                     <tr th:each="umFranquiado : ${listaFranquiados}">
-                       <td th:text="${umFranquiado.id}"></td>
-                       <td th:text="${umFranquiado.nome}"></td>
-                       <td th:text="${umFranquiado.email}"></td>
-                       <td th:text="${umFranquiado.telefone}"></td>
-                       <td th:text="${umFranquiado.CNPJ}"></td>
-                       <td th:text="${umFranquiado.endereco.logradouro}"></td>
-                       <td th:text="${umFranquiado.endereco.bairro}"></td>
-                       
-                       <td></td>
-                       <td></td>
-                       <td> 
-                            
+                       <td th:text="${umFranquiado.id}" class="table-light"></td>
+                       <td th:text="${umFranquiado.nome}"  class="table-light"></td>
+                       <td th:text="${umFranquiado.email}"  class="table-light"></td>
+                       <td th:text="${umFranquiado.telefone}"  class="table-light"></td>
+                       <td th:text="${umFranquiado.CNPJ}"  class="table-light"></td>
+                       <td th:text="${umFranquiado.endereco.logradouro}"  class="table-light"></td>
+                       <td th:text="${umFranquiado.endereco.bairro}"  class="table-light"></td>
+                       <td th:text="${umFranquiado.endereco.uf}"></td>
+                       <td th:text="${umFranquiado.endereco.cidade}"  class="table-light"></td>
+                        <td class="table-light"> 
                            <a th:href="@{'franquiados/alterar/' + ${umFranquiado.id}}" class="btn btn-warning">Alterar</a>
                            <button class="btn btn-danger js-delete" th:data-id="${umFranquiado.id}">Excluir</button>
-                       </td>
+                        </td>
                     </tr>
                 </tbody>
             </table>   
+            <a href="/franquiados/novo" class="btn btn-primary">Novo</a>
         </main>
         <div class="modal" tabindex="-1" id="modalfranquiados">
             <div class="modal-dialog">
@@ -59,7 +57,7 @@
             </div>
             </div>
           </div>
-        <footer th:include="layout :: footer"></footer>
+          <footer th:include="layout :: footer"></footer>
         <script th:src="@{/script.js}"></script>
         <script type="text/javascript" th:src="@{/app.js}"></script>
     </body>

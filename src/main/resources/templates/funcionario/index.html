@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: head"></head>
+    <body>
+    
+    <main class="container">
+        <nav th:replace="layout :: menu"></nav>
+        <h2>Controle de Funcionários</h2>
+        
+        <table class="table table-bordered table-light" id="tabfuncionarios" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>CPF</th>
+                    <th>RG</th>
+                    <th>Idade</th>
+                    <th>Logradouro</th>
+                    <th>Bairro</th>
+                    <th>UF</th>
+                    <th>Cidade</th>
+                    <th>Editar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="umFuncionario : ${listaFuncionarios}">
+                    <td th:text="${umFuncionario.id}"class="table-light"></td>
+                    <td th:text="${umFuncionario.nome}"class="table-light"></td>
+                    <td th:text="${umFuncionario.email}"class="table-light"></td>
+                    <td th:text="${umFuncionario.telefone}"class="table-light"></td>
+                    <td th:text="${umFuncionario.cpf}"class="table-light"></td>
+                    <td th:text="${umFuncionario.rg}"class="table-light"></td>
+                    <td th:text="${umFuncionario.idade}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.logradouro}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.bairro}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.uf}"class="table-light"></td>
+                    <td th:text="${umFuncionario.endereco.cidade}" class="table-light"></td>
+                    <td> 
+                       <a th:href="@{'funcionarios/alterar/' + ${umFuncionario.id}}" class="btn btn-warning">Alterar</a>
+                       <button class="btn btn-danger js-delete" th:data-id="${umFuncionario.id}">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+        <a href="/funcionarios/novo" class="btn btn-primary">Novo</a>
+    </main>
+    <div class="modal" tabindex="-1" id="modalfuncionario">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Funcionário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirma a exclusão do Funcionário?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btnnao" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:include="layout :: footer"></footer>
+    <script th:src="@{/scriptfunci.js}"></script>
+    </body>
+</html>

@@ -1,30 +1,38 @@
 package br.univille.sistemachocolateria.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Entity
-public class Franquiado {
+public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(length = 1000, nullable = false)
     @NotBlank(message = "Campo obrigatório")
     private String nome;
     @NotBlank(message = "Campo obrigatório")
-    private String CNPJ; 
-    @OneToOne(cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
     private String email;
     @NotBlank(message = "Campo obrigatório")
     private String telefone;
-
+    @NotBlank(message = "Campo obrigatório")
+    private String cpf;
+    @NotBlank(message = "Campo obrigatório")
+    private String rg;
+    private int idade;
+    @OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
     public long getId() {
         return id;
     }
@@ -39,22 +47,6 @@ public class Franquiado {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCNPJ() {
-        return CNPJ;
-    }
-
-    public void setCNPJ(String cNPJ) {
-        CNPJ = cNPJ;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
     }
 
     public String getEmail() {
@@ -73,4 +65,30 @@ public class Franquiado {
         this.telefone = telefone;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    public String getRg() {
+        return rg;
+    }
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+    public int getIdade() {
+        return idade;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    public Endereco getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    
 }

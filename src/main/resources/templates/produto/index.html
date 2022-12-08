@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
 <head th:include="layout :: head"></head>
-
 <body>
     <nav th:replace="layout :: menu"></nav>
     <main class="container"> 
         <h2>Controle de Produtos:</h2>
-        <a href="/produtos/novo" class="btn btn-primary">Novo</a>
-        <table class="table table-bordered"id="tabprodutos" >
+        <table class="table table-bordered table-light" id="tabprodutos" >
             <thead>
                 <tr>
                     <th>Id</th>
@@ -20,19 +17,18 @@
             </thead>
             <tbody>
                 <tr th:each="umProduto : ${listaProdutos}">
-                    <td th:text="${umProduto.id}"></td>
-                    <td th:text="${umProduto.marca}"></td>
-                    <td th:text="${umProduto.tipo}"></td>
-                    <td th:text="${umProduto.valor}"></td>
-                    
-                    <td>
+                    <td th:text="${umProduto.id}" ></td>
+                    <td th:text="${umProduto.marca}" ></td>
+                    <td th:text="${umProduto.tipo}" ></td>
+                    <td th:text="${umProduto.valor}" ></td>
+                    <td >
                         <a th:href="@{'/produtos/alterar/' + ${umProduto.id}}" class="btn btn-warning">Alterar</a>
                         <button class="btn btn-danger js-delete" th:data-id="${umProduto.id}">Excluir</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-
+        <a href="/produtos/novo" class="btn btn-primary">Novo</a>
     </main>
     <div class="modal" tabindex="-1" id="modalproduto">
         <div class="modal-dialog">

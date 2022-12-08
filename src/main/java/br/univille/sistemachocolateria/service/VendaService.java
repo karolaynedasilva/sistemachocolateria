@@ -2,7 +2,6 @@ package br.univille.sistemachocolateria.service;
 
 import java.util.List;
 
-import br.univille.sistemachocolateria.entity.Produto;
 import br.univille.sistemachocolateria.entity.Venda;
 
 public interface VendaService {

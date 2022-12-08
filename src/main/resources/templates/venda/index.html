@@ -6,23 +6,26 @@
 <body>
     <nav th:replace="layout :: menu"></nav>
     <main class="container">
-        <a href="/vendas/novo" class="btn btn-primary">Novo</a>
-        <table class="table">
+       <h2 style="text-align: center;">Controle de saída</h2>
+  
+        <table class=" table table-bordered  table-light" >
             <thead>
                 <tr>
                     <th>Data da Venda</th>
-
+                    <th>Comprador</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="umaVenda : ${listaVendas}">
-                    <td th:text="${umaVenda.data}"></td>
-
+                    <td th:text="${umaVenda.data}"></th>
+                    <td th:text="${umaVenda.comprador?.nome}"></td>
                     <td th:text="${#aggregates.sum(umaVenda.listaItens.![getValorFinal])}"></td>
 
                 </tr>
             </tbody>
         </table>
+        <a href="/vendas/novo" class="btn btn-primary">Novo</a>
     </main>
     <footer th:include="layout :: footer"></footer>
 </body>

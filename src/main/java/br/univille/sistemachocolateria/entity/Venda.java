@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +30,17 @@ public class Venda {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "venda_id")
     private List<ItemVenda> listaItens = new ArrayList<>();
+
+    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
+    private Franquiado comprador;
+
+    public Franquiado getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Franquiado comprador) {
+        this.comprador = comprador;
+    }
 
     public long getId() {
         return id;

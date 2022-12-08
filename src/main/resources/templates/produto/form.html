@@ -4,7 +4,6 @@
 <head th:include="layout :: head"></head>
 
 <body>
-    <nav th:replace="layout :: menu"></nav>
     <main class="container">
         <form th:action="@{/produtos/(form)}" method="POST" th:object="${produto}" class="row g-3">
 
@@ -13,14 +12,18 @@
             <div class="form-group">
                 <label for="txtmarca">Marca:</label>
                 <input type="text" th:field="*{marca}" class="form-control" id="txtmarca">
+                <p th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}" class="alert alert-danger">
+                </p>
             </div>
             <div class="form-group">
                 <label for="txttipo">Tipo:</label>
                 <input type="text" th:field="*{tipo}" class="form-control" id="txttipo">
+                <p th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}" class="alert alert-danger"></p>
             </div>
             <div class="form-group">
-                <label for="txtvalor">Valor:</label>
-                <input type="text" th:field="*{valor}" class="form-control" id="txtvalor">
+                <label for="txtvalor ">Valor:</label>
+                <input type="number" th:field="*{valor}" class="form-control" id="txtvalor">
+                <p th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}" class="alert alert-danger"></p>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>

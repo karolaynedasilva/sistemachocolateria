@@ -6,20 +6,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Produto{
+public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(length = 2000)
+    @NotBlank(message = "Favor inserir a marca")
     private String marca;
+
     @Column(length = 2000)
+    @NotBlank(message = "Favor inserir o tipo")
     private String tipo;
-    private float valor;
 
-
+    /*
+     * @Max(value = 100, message = "some key or default message")
+     * 
+     * @Min(value = 1, message = "some key or default message")
+     */
+    @DecimalMin(value = "1", message = "Valor mínimo é um")
+    private Double valor = 0d;
 
     public long getId() {
         return id;
@@ -45,11 +57,11 @@ public class Produto{
         this.tipo = tipo;
     }
 
-    public float getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
