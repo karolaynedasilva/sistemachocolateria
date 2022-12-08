@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -17,9 +18,10 @@ public class Franquiado {
     @NotBlank(message = "Campo obrigatório")
     private String nome;
     @NotBlank(message = "Campo obrigatório")
-    private String CNPJ; 
+    private String CNPJ;
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
+    @Valid
     private Endereco endereco;
     @NotBlank(message = "Campo obrigatório")
     private String email;

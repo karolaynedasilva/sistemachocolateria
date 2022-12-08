@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.persistence.Id;
 
 @Entity
@@ -11,9 +13,15 @@ import javax.persistence.Id;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; 
+    private long id;
+    @NotNull(message = "campo obrigatório")
+    @NotEmpty(message = "campo obrigatório")
     private String logradouro;
+    @NotNull(message = "campo obrigatório")
+    @NotEmpty(message = "campo obrigatório")
     private String bairro;
+    @NotNull(message = "campo obrigatório")
+    @NotEmpty(message = "campo obrigatório")
     private String cidade;
     private UF uf;
     private String cep;

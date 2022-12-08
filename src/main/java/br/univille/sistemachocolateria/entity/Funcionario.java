@@ -8,7 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 
@@ -28,9 +29,11 @@ public class Funcionario {
     private String cpf;
     @NotBlank(message = "Campo obrigatório")
     private String rg;
+    @Min(value = 1, message = "Campo obrigatório")
     private int idade;
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
+    @Valid
     private Endereco endereco;
     
     public long getId() {
@@ -72,23 +75,29 @@ public class Funcionario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
     public String getRg() {
         return rg;
     }
+
     public void setRg(String rg) {
         this.rg = rg;
     }
+
     public int getIdade() {
         return idade;
     }
+
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
     public Endereco getEndereco() {
         return endereco;
     }
+
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-    
+
 }
