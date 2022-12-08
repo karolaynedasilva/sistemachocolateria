@@ -1,6 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
        <head th:include="layout :: head"></head>
+      
         <main class="container">
+            <nav th:replace="layout :: menu"></nav>
             <h2>Controle de Franquiados:</h2>
          
             <table class="table table-bordered table-light" id="tabfranquiados">
