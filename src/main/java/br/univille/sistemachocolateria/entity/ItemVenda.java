@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
 
 @Entity
 public class ItemVenda {
@@ -15,8 +17,13 @@ public class ItemVenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Min(value = 1, message = "Campo obrigatório")
     private int quantidade;
-    private float valorVenda;
+
+    @DecimalMin(value = "1", message = "Valor mínimo é um")
+    private Double valorVenda = 0d;
+    
     @ManyToOne(cascade = {CascadeType.REFRESH})
     @JoinColumn(nullable = false)
     private Produto produto;
@@ -40,11 +47,11 @@ public class ItemVenda {
         this.quantidade = quantidade;
     }
 
-    public float getValorVenda() {
+    public Double getValorVenda() {
         return valorVenda;
     }
 
-    public void setValorVenda(float valorVenda) {
+    public void setValorVenda(Double valorVenda) {
         this.valorVenda = valorVenda;
     }
 
@@ -56,7 +63,7 @@ public class ItemVenda {
         this.produto = produto;
     }
 
-    public float getValorFinal() {
+    public Double getValorFinal() {
         return this.getValorVenda() * this.getQuantidade();
     }
 

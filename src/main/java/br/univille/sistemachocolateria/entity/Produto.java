@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Produto {
@@ -30,6 +31,7 @@ public class Produto {
      * @Min(value = 1, message = "some key or default message")
      */
     @DecimalMin(value = "1", message = "Valor mínimo é um")
+    @NotNull(message = "Valor mínimo é um")
     private Double valor = 0d;
 
     public long getId() {

@@ -36,8 +36,8 @@ public class ProdutoController {
     @PostMapping(params = "form")
     public ModelAndView save(@Valid Produto produto,
             BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ModelAndView("produto/form", "produto", produto);
+                if (bindingResult.hasErrors()) {
+                    return new ModelAndView("produto/form", "produto", produto);
         }
         service.save(produto);
         return new ModelAndView("redirect:/produtos");
@@ -57,3 +57,8 @@ public class ProdutoController {
     }
 
 }
+              
+     
+        
+       
+    
