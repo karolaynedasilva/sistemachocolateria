@@ -15,8 +15,7 @@ public class ItemVenda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(nullable = false)
-    private Integer quantidade;
+    private int quantidade;
     private float valorVenda;
     @ManyToOne(cascade = {CascadeType.REFRESH})
     @JoinColumn(nullable = false)
@@ -24,10 +23,6 @@ public class ItemVenda {
 
 
  
-    
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
 
     public long getId() {
         return id;

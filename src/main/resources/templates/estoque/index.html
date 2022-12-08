@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-    <head th:include="layout :: head"></head>
-    <nav th:replace="layout :: menu"></nav>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <head th:include="layout :: head"></head> 
+        <nav th:replace="layout :: menu"></nav>
     <body>
-    <!-- <nav th:replace="layout :: menu"></nav> -->
-    <main class="container"
-    style="min-height: 485px;">
-    
-    <div class="card border-dark mb-3 "
-    style="border: 1px solid #ccc; padding: 10px; margin-top: 5%;">
-    <section >
-      <h2 style="border-bottom: 2px solid #000; margin-bottom: 20px">Controle de Geral</h2>
-      <div class="card-deck row row-cols-3" style=" margin: 1%;">
-        <div class="card border-primary mb-3"
-          style="max-width: 33rem; margin: 1%;">
-          <div class="card-header">Funcionários</div>
-          <div class="card-body">
-            <h6 class="card-title text-center">Quantidade Atual</h6>
-            <p class="card-text text-center" th:text=${estoque.qtd_funcionario}><span style="font-size: 40px;"></span></p>
-          </div>
-        </div>
-        <div class="card border-danger mb-3"
-              style="max-width: 33rem;margin: 1%;">
-              <div class="card-header">Franquiados</div>
-              <div class="card-body">
+
+    <main class="cards">
+    <div id="bloco">
+        <section class="card funcionario">
+            <div class="icon">
+                <img src="/css/img/franquiado.png" alt="franquiado">
+            </div>
+            <div class="card-header">Franquiados</div>
+            <div class="card-body">
                 <h6 class="card-title text-center">Quantidade Atual</h6>
                 <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_franquiado}></span></p>
-              </div>
+        </section>
+
+        <section class="card produto">
+            <div class="icon">
+                <img src="/css/img/produtos.png" alt="produtos">
             </div>
-            <div class="card border-success mb-3"
-              style="max-width: 33rem;margin: 1%;">
-              <div class="card-header">Produtos</div>
-              <div class="card-body">
+            <div class="card-header">Produtos</div>
+            <div class="card-body">
                 <h6 class="card-title text-center">Quantidade Atual</h6>
                 <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_produto}></span></p>
               </div>
-            </div>
-            <!-- <div class="card border-success mb-3"
-              style="max-width: 33rem;margin: 1%;">
-              <div class="card-header">Produtos em Estoque</div>
-              <div class="card-body">
-                <h6 class="card-title text-center">Quantidade Atual</h6>
-                <p class="card-text text-center"><span style="font-size: 40px;"  th:text=${estoque.qtd_produto_estoque}></span></p>
-              </div>
-            </div> -->
-          </div>
         </section>
-  </main>
+
+        <section class="card funcionario">
+            <div class="icon">
+                <img src="/css/img/funcionario.png" alt="funcionario">
+            </div>
+            <div class="card-header">Funcionários</div>
+            <div class="card-body">
+                <h6 class="card-title text-center">Quantidade Atual</h6>
+                <p class="card-text text-center" ><span style="font-size: 40px;" th:text=${estoque.qtd_funcionario}></span></p>
+        </section>
+    </div>
+   
+    </main>
+  
     <footer th:include="layout :: footer"></footer>
     </body>
 </html>

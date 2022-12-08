@@ -5,8 +5,9 @@
 
 <body>
     <main class="container">
+        <nav th:replace="layout :: menu"></nav>
         <form th:action="@{/produtos/(form)}" method="POST" th:object="${produto}" class="row g-3">
-
+            <h2 style="margin-top: 90px;">Cadastre um novo Produto:</h2>
             <input type="hidden" th:field="*{id}" class="form-control">
 
             <div class="form-group">

@@ -11,7 +11,7 @@ h2{
   font-variant-caps: all-small-caps;
   font-weight: bold;
   font-size: 3rem;
-  margin-top: 5%;
+  margin-top: 80px;
   text-align: center;
 
 }
@@ -51,6 +51,7 @@ h3{
 .logo {
     color: white;
 }
+
 /* 
   PROCUARAR SOBRE O MEDIA SCRENN E TROCAR A MARGIN DISSO AQUI
   h2{

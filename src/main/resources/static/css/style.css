@@ -22,7 +22,7 @@ body {
 
 main.cards {
     display: flex;
-    padding: 32px;
+
 }
 
 main.cards section.card {
@@ -81,3 +81,17 @@ main.cards section.card a.button {
  main.cards section.card.estoque a.button {
     background:#FFC14F;
 }
+#bloco{
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    align-items: center;
+    justify-content: center;
+    background-color: #3e8bff83;
+    border-radius: 10px;
+}
+h6{
+    display: flex;
+    text-align: end;
+}
+
