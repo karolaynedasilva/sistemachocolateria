@@ -35,7 +35,7 @@ public class FuncionarioController {
         var funcionario = new Funcionario();
         var listaFuncionarios = service.getAll();
         var listaUfs = UF.values();
-        HashMap<String,Object> dados = new HashMap<>();
+        HashMap<String, Object> dados = new HashMap<>();
         dados.put("funcionario", funcionario);
         dados.put("listaFuncionarios", listaFuncionarios);
         dados.put("ufs", listaUfs);
@@ -46,9 +46,11 @@ public class FuncionarioController {
     public ModelAndView save(@Valid Funcionario funcionario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             var listaFuncionarios = service.getAll();
+            var listaUfs = UF.values();
             HashMap<String, Object> dados = new HashMap<>();
             dados.put("funcionario", funcionario);
             dados.put("listaFuncionarios", listaFuncionarios);
+            dados.put("ufs", listaUfs);
             return new ModelAndView("funcionario/form", dados);
         }
         service.save(funcionario);
