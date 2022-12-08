@@ -30,7 +30,7 @@
             </div>  
             <div class="col-md-6">
               <label for="txtrg">RG:</label>
-              <input placeholder="XX. XXX. XXX/0001-XX." type="text" th:field="*{rg}" class="form-control" id="txtrg"> 
+              <input placeholder="X.XXX.XXX" type="text" th:field="*{rg}" class="form-control" id="txtrg"> 
               <p th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}" class="alert alert-danger"></p>   
             </div>  
             <div class="col-md-6">
@@ -56,7 +56,7 @@
                 <option th:each="uf : ${ufs}" th:value="${uf}" th:text="${uf}"></option>
               </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-10">
               <label for="txtCidade" class="form-label">Cidade:</label>
               <input type="text" th:field="*{endereco.cidade}"class="form-control" id="txtCidade">
           </div>
