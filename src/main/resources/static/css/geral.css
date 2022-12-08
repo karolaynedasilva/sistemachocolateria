@@ -5,6 +5,7 @@ body{
     box-sizing: border-box;
     font-family: Poppins;
     background-color: #dbe5fa;
+    font-size: 1.2rem;
 }
 h2{
   font-variant-caps: all-small-caps;

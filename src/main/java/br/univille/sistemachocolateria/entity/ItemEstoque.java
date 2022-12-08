@@ -9,7 +9,14 @@ public class ItemEstoque implements Serializable{
 	private long qtd_produto;
 	private long qtd_franquiado;
 	private long qtd_funcionario;
+	// private long qtd_produto_estoque;
 	
+	// public long getQtd_produto_estoque() {
+	// 	return qtd_produto_estoque;
+	// }
+	// public void setQtd_produto_estoque(long qtd_produto_estoque) {
+	// 	this.qtd_produto_estoque = qtd_produto_estoque;
+	// }
 	public long getQtd_funcionario() {
 		return qtd_funcionario;
 	}
@@ -45,6 +52,8 @@ public class ItemEstoque implements Serializable{
 			return false;
 		if (qtd_produto != other.qtd_produto)
 			return false;
+		// if (qtd_produto_estoque != other.qtd_produto_estoque)
+		// return false;
 		
 		return true;
 	}
