@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.HashMap;
 
 import javax.validation.Valid;
-
 import br.univille.sistemachocolateria.entity.Funcionario;
 import br.univille.sistemachocolateria.entity.UF;
 import br.univille.sistemachocolateria.service.FuncionarioService;
@@ -47,9 +46,11 @@ public class FuncionarioController {
     public ModelAndView save(@Valid Funcionario funcionario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             var listaFuncionarios = service.getAll();
+            var listaUfs = UF.values();
             HashMap<String, Object> dados = new HashMap<>();
             dados.put("funcionario", funcionario);
             dados.put("listaFuncionarios", listaFuncionarios);
+            dados.put("ufs", listaUfs);
             return new ModelAndView("funcionario/form", dados);
         }
         service.save(funcionario);

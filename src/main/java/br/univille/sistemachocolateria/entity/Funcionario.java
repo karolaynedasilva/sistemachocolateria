@@ -11,7 +11,6 @@ import javax.persistence.OneToOne;
 
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class Funcionario {
@@ -33,6 +32,7 @@ public class Funcionario {
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    
     public long getId() {
         return id;
     }

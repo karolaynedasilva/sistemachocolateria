@@ -21,6 +21,7 @@ public class Franquiado {
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "endereco_id")
     private Endereco endereco;
+    @NotBlank(message = "Campo obrigatório")
     private String email;
     @NotBlank(message = "Campo obrigatório")
     private String telefone;

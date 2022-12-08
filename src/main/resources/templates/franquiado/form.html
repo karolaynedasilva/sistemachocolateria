@@ -14,7 +14,7 @@
                 <div class="col-md-6">
                     <label for="txtemail" class="form-label">E-mail:</label>
                     <input type="text" th:field="*{email}" class="form-control" id="txtemail"> 
-                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></p>   
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  class="alert alert-danger"></p>   
                 </div> 
                 <div class="col-md-6">
                     <label for="txttelefone" class="form-label">Telefone:</label>
