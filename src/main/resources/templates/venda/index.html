@@ -20,7 +20,6 @@
                     <td th:text="${umaVenda.data}"></th>
                     <td th:text="${umaVenda.comprador?.nome}"></td>
                     <td th:text="${#aggregates.sum(umaVenda.listaItens.![getValorFinal])}"></td>
-
                 </tr>
             </tbody>
         </table>

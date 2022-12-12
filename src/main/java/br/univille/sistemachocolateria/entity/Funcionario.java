@@ -12,7 +12,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class Funcionario {
@@ -36,7 +35,7 @@ public class Funcionario {
     @JoinColumn(name = "endereco_id")
     @Valid
     private Endereco endereco;
-
+    
     public long getId() {
         return id;
     }

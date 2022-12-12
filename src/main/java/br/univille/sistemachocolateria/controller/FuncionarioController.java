@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.HashMap;
 
 import javax.validation.Valid;
-
 import br.univille.sistemachocolateria.entity.Funcionario;
 import br.univille.sistemachocolateria.entity.UF;
 import br.univille.sistemachocolateria.service.FuncionarioService;

@@ -23,6 +23,7 @@ public class Franquiado {
     @JoinColumn(name = "endereco_id")
     @Valid
     private Endereco endereco;
+    @NotBlank(message = "Campo obrigatório")
     private String email;
     @NotBlank(message = "Campo obrigatório")
     private String telefone;
